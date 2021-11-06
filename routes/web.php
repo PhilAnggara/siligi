@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware(['auth'])->group(function () {
 
     Route::get('/', 'MainController@index')->name('home');
-    Route::get('/renstra', 'RenstraController@index')->name('renstra');
+    Route::resource('dokren/renstra', 'RenstraController');
     
 });
 

@@ -15,6 +15,9 @@
   font-size: 30px;
   margin-top: -10px;
 }
+#app #main .main-content .section .card .card-body table tbody .button-for-upload button {
+  padding: 1px 7px;
+}
 
 #auth {
   background-image: none;

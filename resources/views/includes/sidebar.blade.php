@@ -16,7 +16,7 @@
             <span>Dashboard</span>
           </a>
         </li>
-        <li class="sidebar-item  has-sub">
+        <li class="sidebar-item has-sub">
           <a href="#" class='sidebar-link'>
             <i class="far fa-server"></i>
             <span>Master</span>
@@ -33,7 +33,7 @@
             </li>     
           </ul>
         </li>
-        <li class="sidebar-item  has-sub">
+        <li class="sidebar-item has-sub {{ Request::is('kegiatan') ? 'active' : '' }}">
           <a href="#" class='sidebar-link'>
             <i class="far fa-calendar-day"></i>
             <span>Kegiatan</span>
@@ -53,7 +53,7 @@
             </li>     
           </ul>
         </li>
-        <li class="sidebar-item  has-sub">
+        <li class="sidebar-item has-sub {{ Request::is('pagu-anggaran') ? 'active' : '' }}">
           <a href="#" class='sidebar-link'>
             <i class="far fa-money-bill-wave"></i>
             <span>Pagu Anggaran</span>
@@ -70,14 +70,14 @@
             </li>     
           </ul>
         </li>
-        <li class="sidebar-item  has-sub">
+        <li class="sidebar-item has-sub {{ Request::is('dokren*') ? 'active' : '' }}">
           <a href="#" class='sidebar-link'>
             <i class="far fa-bars"></i>
             <span>Dokren</span>
           </a>
           <ul class="submenu "> 
             <li>
-              <a href="{{ route('home') }}">RENSTRA</a>
+              <a href="{{ route('renstra.index') }}">RENSTRA</a>
             </li>
             <li>
               <a href="{{ route('home') }}">RENJA</a>
@@ -87,7 +87,7 @@
             </li>     
           </ul>
         </li>
-        <li class="sidebar-item {{ Request::is('pindai') ? 'active' : '' }}">
+        <li class="sidebar-item {{ Request::is('account') ? 'active' : '' }}">
           <a href="{{ route('home') }}" class='sidebar-link'>
             <i class="far fa-user"></i>
             <span>Account</span>

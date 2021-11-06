@@ -38,13 +38,25 @@ $f-brand-2: 'Ubuntu', sans-serif;
       }
     }
   }
-  // #main {
-  //   .main-content {
-  //     .card-statistic {
-
-  //     }
-  //   }
-  // }
+  #main {
+    .main-content {
+      .section {
+        .card {
+          .card-body {
+            table {
+              tbody {
+                .button-for-upload {
+                  button {
+                    padding: 1px 7px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 
