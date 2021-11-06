@@ -1,59 +1,110 @@
-<x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
+@extends('layouts.auth')
+@section('title', 'SILIGI - Buat Akun')
 
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
+@section('content')
+<div class="col-md-5 col-sm-12 mx-auto">
+  <div class="card pt-1">
+    <div class="card-body">
+      <div class="text-center mb-1">
+        {{-- <img src="{{ url('frontend/images/logo.png') }}" height="48" class='mb-4'> --}}
+        LOGO
+        <h3>SILIGI</h3>
+        <p>Buat Akun</p>
+      </div>
+      <form action="" method="POST">
+        @csrf
 
-        <form method="POST" action="{{ route('register') }}">
-            @csrf
-
-            <!-- Name -->
-            <div>
-                <x-label for="name" :value="__('Name')" />
-
-                <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus />
+        <div class="form-group position-relative has-icon-left">
+          <label for="name">Nama</label>
+          <div class="position-relative">
+            <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autofocus autocomplete="off">
+            <div class="form-control-icon @error('name') invisible @enderror">
+              <i data-feather="user"></i>
             </div>
-
-            <!-- Email Address -->
-            <div class="mt-4">
-                <x-label for="email" :value="__('Email')" />
-
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
+            @error('name')
+              <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+              </span>
+            @enderror
+          </div>
+        </div>
+        <div class="form-group position-relative has-icon-left">
+          <label for="username">Username</label>
+          <div class="position-relative">
+            <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autofocus autocomplete="off">
+            <div class="form-control-icon @error('username') invisible @enderror">
+              <i data-feather="user-check"></i>
             </div>
-
-            <!-- Password -->
-            <div class="mt-4">
-                <x-label for="password" :value="__('Password')" />
-
-                <x-input id="password" class="block mt-1 w-full"
-                                type="password"
-                                name="password"
-                                required autocomplete="new-password" />
+            @error('username')
+              <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+              </span>
+            @enderror
+          </div>
+        </div>
+        <div class="form-group position-relative has-icon-left">
+          <label for="email">Email</label>
+          <div class="position-relative">
+            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="off">
+            <div class="form-control-icon @error('email') invisible @enderror">
+              <i data-feather="mail"></i>
             </div>
-
-            <!-- Confirm Password -->
-            <div class="mt-4">
-                <x-label for="password_confirmation" :value="__('Confirm Password')" />
-
-                <x-input id="password_confirmation" class="block mt-1 w-full"
-                                type="password"
-                                name="password_confirmation" required />
+            @error('email')
+              <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+              </span>
+            @enderror
+          </div>
+        </div>
+        <div class="form-group position-relative has-icon-left">
+          <label for="jabatan">Jabatan</label>
+          <div class="position-relative">
+            <input id="jabatan" type="text" class="form-control @error('jabatan') is-invalid @enderror" name="jabatan" value="{{ old('jabatan') }}" required autofocus autocomplete="off">
+            <div class="form-control-icon @error('jabatan') invisible @enderror">
+              <i data-feather="pocket"></i>
             </div>
-
-            <div class="flex items-center justify-end mt-4">
-                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
-                    {{ __('Already registered?') }}
-                </a>
-
-                <x-button class="ml-4">
-                    {{ __('Register') }}
-                </x-button>
+            @error('jabatan')
+              <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+              </span>
+            @enderror
+          </div>
+        </div>
+        <div class="form-group position-relative has-icon-left">
+          <div class="clearfix">
+            <label for="password">Kata Sandi</label>
+          </div>
+          <div class="position-relative">
+            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="off">
+            <div class="form-control-icon @error('password') invisible @enderror">
+              <i data-feather="lock"></i>
             </div>
-        </form>
-    </x-auth-card>
-</x-guest-layout>
+            @error('password')
+              <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+              </span>
+            @enderror
+          </div>
+        </div>
+        <div class="form-group position-relative has-icon-left">
+          <div class="clearfix">
+            <label for="password-confirm">Konfirmasi Kata Sandi</label>
+          </div>
+          <div class="position-relative">
+            <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="off">
+            <div class="form-control-icon">
+              <i data-feather="lock"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="clearfix mt-4">
+          <a href="{{ route('login') }}">Sudah punya akun? masuk</a>
+          <button type="submit" class="btn btn-primary float-end">Daftar</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
+@endsection

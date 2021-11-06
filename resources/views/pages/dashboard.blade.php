@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'BKAD Inventory')
+@section('title', 'SILIGI')
 
 @section('content')
 <div class="main-content container-fluid">
