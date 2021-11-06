@@ -41,4 +41,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    public function uploads()
+    {
+        return $this->hasMany(Upload::class, 'id_user', 'id');
+    }
+    public function latestUpload()
+    {
+        return $this->hasOne(Upload::class, 'id_user', 'id')->latest();
+    }
 }
