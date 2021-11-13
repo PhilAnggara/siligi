@@ -23,13 +23,19 @@
           </a>
           <ul class="submenu "> 
             <li>
-              <a href="{{ route('home') }}">Data Kecamatan</a>
+              <a href="{{ route('home') }}" class="{{ Request::is('master/data-kecamatan') ? 'text-primary' : '' }}">
+                Data Kecamatan
+              </a>
             </li>
             <li>
-              <a href="{{ route('home') }}">Data Desa</a>
+              <a href="{{ route('home') }}" class="{{ Request::is('master/data-desa') ? 'text-primary' : '' }}">
+                Data Desa
+              </a>
             </li>     
             <li>
-              <a href="{{ route('home') }}">Evaluasi</a>
+              <a href="{{ route('home') }}" class="{{ Request::is('master/evaluasi') ? 'text-primary' : '' }}">
+                Evaluasi
+              </a>
             </li>     
           </ul>
         </li>
@@ -40,33 +46,50 @@
           </a>
           <ul class="submenu "> 
             <li>
-              <a href="{{ route('home') }}">CSR</a>
+              <a href="{{ route('home') }}" class="{{ Request::is('kegiatan/csr') ? 'text-primary' : '' }}">
+                CSR
+              </a>
             </li>
             <li>
-              <a href="{{ route('home') }}">LSM</a>
+              <a href="{{ route('home') }}" class="{{ Request::is('kegiatan/lsm') ? 'text-primary' : '' }}">
+                LSM
+              </a>
             </li>     
             <li>
-              <a href="{{ route('home') }}">Akademisi/Peneliti</a>
+              <a href="{{ route('home') }}" class="{{ Request::is('kegiatan/akademisi') ? 'text-primary' : '' }}">
+                Akademisi/Peneliti
+              </a>
             </li>     
             <li>
-              <a href="{{ route('home') }}">Laporan Triwulan PD</a>
+              <a href="{{ route('home') }}" class="{{ Request::is('kegiatan/laporan-triwulan-pd') ? 'text-primary' : '' }}">
+                Laporan Triwulan PD
+              </a>
             </li>     
           </ul>
         </li>
-        <li class="sidebar-item has-sub {{ Request::is('pagu-anggaran') ? 'active' : '' }}">
+        <li class="sidebar-item has-sub {{ Request::is('pagu-anggaran*') ? 'active' : '' }}">
           <a href="#" class='sidebar-link'>
             <i class="far fa-money-bill-wave"></i>
             <span>Pagu Anggaran</span>
           </a>
           <ul class="submenu "> 
             <li>
-              <a href="{{ route('home') }}">Pagu RKA</a>
+              <a href="{{ route('monev.index') }}" class="{{ Request::is('pagu-anggaran/monev') ? 'text-primary' : '' }}">Monev</a>
             </li>
             <li>
-              <a href="{{ route('home') }}">Pagu DPA</a>
+              <a href="{{ route('home') }}" class="{{ Request::is('pagu-anggaran/rka') ? 'text-primary' : '' }}">
+                Pagu RKA
+              </a>
+            </li>
+            <li>
+              <a href="{{ route('home') }}" class="{{ Request::is('pagu-anggaran/dpa') ? 'text-primary' : '' }}">
+                Pagu DPA
+              </a>
             </li>     
             <li>
-              <a href="{{ route('home') }}">Pagu Pergeseran</a>
+              <a href="{{ route('home') }}" class="{{ Request::is('pagu-anggaran/pergeseran') ? 'text-primary' : '' }}">
+                Pagu Pergeseran
+              </a>
             </li>     
           </ul>
         </li>
@@ -77,13 +100,19 @@
           </a>
           <ul class="submenu "> 
             <li>
-              <a href="{{ route('renstra.index') }}">RENSTRA</a>
+              <a href="{{ route('renstra.index') }}" class="{{ Request::is('dokren/renstra') ? 'text-primary' : '' }}">
+                RENSTRA
+              </a>
             </li>
             <li>
-              <a href="{{ route('home') }}">RENJA</a>
+              <a href="{{ route('home') }}" class="{{ Request::is('dokren/renja') ? 'text-primary' : '' }}">
+                RENJA
+              </a>
             </li>     
             <li>
-              <a href="{{ route('home') }}">IKU</a>
+              <a href="{{ route('home') }}" class="{{ Request::is('dokren/iku') ? 'text-primary' : '' }}">
+                IKU
+              </a>
             </li>     
           </ul>
         </li>

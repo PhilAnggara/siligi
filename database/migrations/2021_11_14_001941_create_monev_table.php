@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUploadsTable extends Migration
+class CreateMonevTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreateUploadsTable extends Migration
      */
     public function up()
     {
-        Schema::create('uploads', function (Blueprint $table) {
+        Schema::create('monev', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_user');
-            $table->text('path');
-            $table->boolean('status');
+            $table->foreignId('id_dinas');
+            $table->string('nama');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -30,6 +29,6 @@ class CreateUploadsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('uploads');
+        Schema::dropIfExists('monev');
     }
 }

@@ -29,7 +29,7 @@ class RenstraController extends Controller
         $data['path'] = $request->file('path')->store(
             'renstra/user-'.$data['id_user'], 'public'
         );
-        $data['tanggal_upload'] = Carbon::now();
+        // $data['tanggal_upload'] = Carbon::now();
         $data['status'] = 1;
 
         Upload::create($data);

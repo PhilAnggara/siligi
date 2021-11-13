@@ -5,7 +5,7 @@
     <div class="modal-content">
       <div class="modal-header bg-primary">
         <h5 class="modal-title white" id="uploadModal">
-          Upload File
+          Pilih File
         </h5>
         <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
           <i data-feather="x"></i>

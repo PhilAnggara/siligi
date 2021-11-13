@@ -17,50 +17,42 @@ class UploadSeeder extends Seeder
     {
         Upload::create([
             'id_user' => '1',
-            'path' => 'file/nama_file',
-            'tanggal_upload' => Carbon::parse('2021-11-1'),
+            'path' => 'examples/example.pdf',
             'status' => '1'
         ]);
         Upload::create([
             'id_user' => '2',
-            'path' => 'file/nama_file',
-            'tanggal_upload' => Carbon::parse('2021-11-1'),
+            'path' => 'examples/example.pdf',
             'status' => '1'
         ]);
         Upload::create([
             'id_user' => '1',
-            'path' => 'file/nama_file',
-            'tanggal_upload' => Carbon::parse('2021-11-2'),
+            'path' => 'examples/example.pdf',
             'status' => '1'
         ]);
         Upload::create([
             'id_user' => '2',
-            'path' => 'file/nama_file',
-            'tanggal_upload' => Carbon::parse('2021-11-2'),
+            'path' => 'examples/example.pdf',
             'status' => '1'
         ]);
         Upload::create([
             'id_user' => '1',
-            'path' => 'file/nama_file',
-            'tanggal_upload' => Carbon::parse('2021-11-2'),
+            'path' => 'examples/example.pdf',
             'status' => '1'
         ]);
         Upload::create([
             'id_user' => '1',
-            'path' => 'file/nama_file',
-            'tanggal_upload' => Carbon::parse('2021-11-3'),
+            'path' => 'examples/example.pdf',
             'status' => '1'
         ]);
         Upload::create([
             'id_user' => '1',
-            'path' => 'file/nama_file',
-            'tanggal_upload' => Carbon::parse('2021-11-4'),
+            'path' => 'examples/example.pdf',
             'status' => '1'
         ]);
         Upload::create([
             'id_user' => '1',
-            'path' => 'file/nama_file',
-            'tanggal_upload' => Carbon::parse('2021-11-5'),
+            'path' => 'examples/example.pdf',
             'status' => '1'
         ]);
     }

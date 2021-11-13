@@ -17,6 +17,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/', 'MainController@index')->name('home');
     Route::resource('dokren/renstra', 'RenstraController');
+    Route::resource('pagu-anggaran/monev', 'MonevController');
     
 });
 

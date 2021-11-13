@@ -6,25 +6,23 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Upload extends Model
+class Dinas extends Model
 {
     use HasFactory;
     use SoftDeletes;
 
-    protected $table = 'uploads';
+    protected $table = 'dinas';
 
-    protected $fillable = [
-        'id_user',
-        'path',
-        'status',
+    protected $guarded = [
+        'id'
     ];
 
     protected $hidden = [
 
     ];
 
-    public function user()
+    public function monev()
     {
-        return $this->belongsTo(User::class, 'id_user', 'id');
+        return $this->hasMany(Monev::class, 'id_dinas', 'id');
     }
 }

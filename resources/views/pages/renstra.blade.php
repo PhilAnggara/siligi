@@ -20,7 +20,7 @@
                 @endforeach
               </div>
             @endif
-            <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <ul class="nav nav-tabs nav-justified text-nowrap" id="myTab" role="tablist">
               <li class="nav-item">
                 <a class="nav-link active" data-bs-toggle="tab" href="#dinas1" aria-selected="true">Dinas TPHP</a>
               </li>
@@ -76,7 +76,13 @@
                           @endif
                         </td>
                         <td>{{ $item->email }}</td>
-                        <td>{{ Carbon\Carbon::parse($item->latestUpload->tanggal_upload)->isoFormat('D MMM YYYY') }}</td>
+                        <td>
+                          @if ($item->uploads->count())
+                            {{ Carbon\Carbon::parse($item->latestUpload->tanggal_upload)->isoFormat('D MMM YYYY') }}
+                          @else
+                            -
+                          @endif
+                        </td>
                         <td width="300px">
                           <div class="progress progress-{{ $color }}">
                             <div class="progress-bar progress-label" style="width: {{ $percent }}%" aria-valuenow="{{ $percent }}" aria-valuemin="0" aria-valuemax="100">
