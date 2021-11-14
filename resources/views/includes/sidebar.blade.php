@@ -33,6 +33,11 @@
               </a>
             </li>     
             <li>
+              <a href="{{ route('peta') }}" class="{{ Request::is('master/peta') ? 'text-primary' : '' }}">
+                Peta
+              </a>
+            </li>     
+            <li>
               <a href="{{ route('home') }}" class="{{ Request::is('master/evaluasi') ? 'text-primary' : '' }}">
                 Evaluasi
               </a>
@@ -46,6 +51,9 @@
           </a>
           <ul class="submenu "> 
             <li>
+              <a href="{{ route('monev.index') }}" class="{{ Request::is('kegiatan/monev') ? 'text-primary' : '' }}">Monev</a>
+            </li>
+            {{-- <li>
               <a href="{{ route('home') }}" class="{{ Request::is('kegiatan/csr') ? 'text-primary' : '' }}">
                 CSR
               </a>
@@ -64,7 +72,7 @@
               <a href="{{ route('home') }}" class="{{ Request::is('kegiatan/laporan-triwulan-pd') ? 'text-primary' : '' }}">
                 Laporan Triwulan PD
               </a>
-            </li>     
+            </li>    --}}
           </ul>
         </li>
         <li class="sidebar-item has-sub {{ Request::is('pagu-anggaran*') ? 'active' : '' }}">
@@ -72,10 +80,7 @@
             <i class="far fa-money-bill-wave"></i>
             <span>Pagu Anggaran</span>
           </a>
-          <ul class="submenu "> 
-            <li>
-              <a href="{{ route('monev.index') }}" class="{{ Request::is('pagu-anggaran/monev') ? 'text-primary' : '' }}">Monev</a>
-            </li>
+          <ul class="submenu ">
             <li>
               <a href="{{ route('home') }}" class="{{ Request::is('pagu-anggaran/rka') ? 'text-primary' : '' }}">
                 Pagu RKA
@@ -108,12 +113,7 @@
               <a href="{{ route('home') }}" class="{{ Request::is('dokren/renja') ? 'text-primary' : '' }}">
                 RENJA
               </a>
-            </li>     
-            <li>
-              <a href="{{ route('home') }}" class="{{ Request::is('dokren/iku') ? 'text-primary' : '' }}">
-                IKU
-              </a>
-            </li>     
+            </li>    
           </ul>
         </li>
         <li class="sidebar-item {{ Request::is('account') ? 'active' : '' }}">

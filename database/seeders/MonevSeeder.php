@@ -20,11 +20,23 @@ class MonevSeeder extends Seeder
         ]);
         Monev::create([
             'id_dinas' => '1',
-            'nama' => 'BUMN/MUMD/Swasta'
+            'nama' => 'BUMN'
         ]);
         Monev::create([
             'id_dinas' => '1',
-            'nama' => 'LSM, Akademisi'
+            'nama' => 'MUMD'
+        ]);
+        Monev::create([
+            'id_dinas' => '1',
+            'nama' => 'Swasta'
+        ]);
+        Monev::create([
+            'id_dinas' => '1',
+            'nama' => 'LSM'
+        ]);
+        Monev::create([
+            'id_dinas' => '1',
+            'nama' => 'Akademisi'
         ]);
     }
 }
