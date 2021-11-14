@@ -16,19 +16,19 @@
             <span>Dashboard</span>
           </a>
         </li>
-        <li class="sidebar-item has-sub">
+        <li class="sidebar-item has-sub {{ Request::is('master*') ? 'active' : '' }}">
           <a href="#" class='sidebar-link'>
             <i class="far fa-server"></i>
             <span>Master</span>
           </a>
           <ul class="submenu "> 
             <li>
-              <a href="{{ route('home') }}" class="{{ Request::is('master/data-kecamatan') ? 'text-primary' : '' }}">
+              <a href="{{ route('data-kecamatan.index') }}" class="{{ Request::is('master/data-kecamatan') ? 'text-primary' : '' }}">
                 Data Kecamatan
               </a>
             </li>
             <li>
-              <a href="{{ route('home') }}" class="{{ Request::is('master/data-desa') ? 'text-primary' : '' }}">
+              <a href="{{ route('data-desa.index') }}" class="{{ Request::is('master/data-desa') ? 'text-primary' : '' }}">
                 Data Desa
               </a>
             </li>     
@@ -39,7 +39,7 @@
             </li>     
           </ul>
         </li>
-        <li class="sidebar-item has-sub {{ Request::is('kegiatan') ? 'active' : '' }}">
+        <li class="sidebar-item has-sub {{ Request::is('kegiatan*') ? 'active' : '' }}">
           <a href="#" class='sidebar-link'>
             <i class="far fa-calendar-day"></i>
             <span>Kegiatan</span>

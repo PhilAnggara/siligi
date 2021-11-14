@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Kecamatan;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -19,5 +20,7 @@ class DatabaseSeeder extends Seeder
         $this->call(DinasSeeder::class);
         $this->call(MonevSeeder::class);
         $this->call(MonevFileSeeder::class);
+        $this->call(KecamatanSeeder::class);
+        $this->call(DesaSeeder::class);
     }
 }

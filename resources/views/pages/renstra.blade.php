@@ -12,6 +12,7 @@
       <div class="col-12">
         <div class="card">
           <div class="card-body">
+
             @if($errors->any())
               <div class="alert alert-danger">
                 <p><strong>Ups ada yang tidak beres</strong></p>
@@ -20,6 +21,7 @@
                 @endforeach
               </div>
             @endif
+            
             <ul class="nav nav-tabs nav-justified text-nowrap" id="myTab" role="tablist">
               <li class="nav-item">
                 <a class="nav-link active" data-bs-toggle="tab" href="#dinas1" aria-selected="true">Dinas TPHP</a>

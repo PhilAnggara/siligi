@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::middleware(['auth'])->group(function () {
 
     Route::get('/', 'MainController@index')->name('home');
+    Route::resource('master/data-kecamatan', 'KecamatanController');
+    Route::resource('master/data-desa', 'DesaController');
     Route::resource('dokren/renstra', 'RenstraController');
     Route::resource('pagu-anggaran/monev', 'MonevController');
     
