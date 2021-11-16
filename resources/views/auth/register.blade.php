@@ -6,12 +6,12 @@
   <div class="card pt-1">
     <div class="card-body">
       <div class="text-center mb-1">
-        {{-- <img src="{{ url('frontend/images/logo.png') }}" height="48" class='mb-4'> --}}
-        LOGO
+        <img src="{{ url('frontend/images/logo.png') }}" height="80" class='mb-4'>
         <h3>SILIGI</h3>
-        <p>Buat Akun</p>
+        <p>Sistem Informasi Pengendalian Terintegrasi BAPPEDALITBANG Kabupaten Banggai</p>
+        {{-- <p>Buat Akun</p> --}}
       </div>
-      <form action="" method="POST">
+      <form action="{{ route('register') }}" method="POST" enctype="multipart/form-data">
         @csrf
 
         <div class="form-group position-relative has-icon-left">
@@ -36,6 +36,20 @@
               <i data-feather="user-check"></i>
             </div>
             @error('username')
+              <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+              </span>
+            @enderror
+          </div>
+        </div>
+        <div class="form-group position-relative has-icon-left">
+          <label for="profile_pic">Foto Profil (Optional)</label>
+          <div class="position-relative">
+            <input id="profile_pic" type="file" class="form-control @error('profile_pic') is-invalid @enderror" name="profile_pic" value="{{ old('profile_pic') }}" autofocus autocomplete="off">
+            <div class="form-control-icon @error('profile_pic') invisible @enderror">
+              <i data-feather="camera"></i>
+            </div>
+            @error('profile_pic')
               <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>
               </span>

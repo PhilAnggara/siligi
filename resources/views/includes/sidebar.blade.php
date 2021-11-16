@@ -114,6 +114,11 @@
                 RENJA
               </a>
             </li>    
+            <li>
+              <a href="{{ route('home') }}" class="{{ Request::is('dokren/rkpd') ? 'text-primary' : '' }}">
+                RKPD
+              </a>
+            </li>    
           </ul>
         </li>
         <li class="sidebar-item {{ Request::is('account') ? 'active' : '' }}">

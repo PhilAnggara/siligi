@@ -17,6 +17,7 @@ class MonevController extends Controller
         $items2 = Monev::with('files','tr1','tr2','tr3','tr4','latestUpload')->where('id_dinas', 2)->get();
         $items3 = Monev::with('files','tr1','tr2','tr3','tr4','latestUpload')->where('id_dinas', 3)->get();
         $items4 = Monev::with('files','tr1','tr2','tr3','tr4','latestUpload')->where('id_dinas', 4)->get();
+        $items5 = Monev::with('files','tr1','tr2','tr3','tr4','latestUpload')->where('id_dinas', 5)->get();
         $files = MonevFile::all();
 
         return view('pages.monev', [
@@ -24,6 +25,7 @@ class MonevController extends Controller
             'items2' => $items2,
             'items3' => $items3,
             'items4' => $items4,
+            'items5' => $items5,
             'files' => $files
         ]);
     }

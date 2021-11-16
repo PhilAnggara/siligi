@@ -10,7 +10,11 @@
       <li class="dropdown">
         <a href="#" data-bs-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
           <div class="avatar me-1">
-            <img src="https://ui-avatars.com/api/?background=37adf7&color=ffffff&bold=true&name={{ auth()->user()->name }}" alt="" srcset="">
+            @if (auth()->user()->profile_pic)
+              <img src="{{ Storage::url(auth()->user()->profile_pic) }}" alt="" srcset="">
+            @else
+              <img src="https://ui-avatars.com/api/?background=37adf7&color=ffffff&bold=true&name={{ auth()->user()->name }}" alt="" srcset="">
+            @endif
           </div>
           <div class="d-none d-md-block d-lg-inline-block">{{ auth()->user()->name }}</div>
         </a>

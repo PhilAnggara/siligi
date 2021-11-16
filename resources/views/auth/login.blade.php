@@ -6,10 +6,10 @@
   <div class="card pt-4">
     <div class="card-body">
       <div class="text-center mb-5">
-        {{-- <img src="{{ url('frontend/images/logo.png') }}" height="48" class='mb-4'> --}}
-        LOGO
+        <img src="{{ url('frontend/images/logo.png') }}" height="80" class='mb-4'>
         <h3>SILIGI</h3>
-        <p>Isi kolom dengan benar untuk masuk ke SILIGI</p>
+        <p>Sistem Informasi Pengendalian Terintegrasi BAPPEDALITBANG Kabupaten Banggai</p>
+        {{-- <p>Isi kolom dengan benar untuk masuk ke SILIGI</p> --}}
       </div>
       <form action="{{ route('login') }}" method="POST">
         @csrf

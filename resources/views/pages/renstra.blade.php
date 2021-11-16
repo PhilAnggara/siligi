@@ -42,7 +42,7 @@
             <div class="tab-content" id="myTabContent">
               <div class="tab-pane fade show active" id="dinas1">
                 <div class="table-responsive mt-4">
-                  <table class="table table-hover border text-center text-nowrap" id="dataTable">
+                  <table class="table table-hover border text-center text-nowrap" id="dataTable1">
                     <thead class="thead-light">
                       <tr>
                         <th scope="col">Nama Pegawai</th>
@@ -98,16 +98,232 @@
                 </div>
               </div>
               <div class="tab-pane fade" id="dinas2">
-                2
+                <div class="table-responsive mt-4">
+                  <table class="table table-hover border text-center text-nowrap" id="dataTable2">
+                    <thead class="thead-light">
+                      <tr>
+                        <th scope="col">Nama Pegawai</th>
+                        <th scope="col">Status Upload</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Tanggal Upload</th>
+                        <th scope="col">Progress</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      @foreach ($items as $item)
+                      @php
+                        if ($item->uploads->count() <= 2) {
+                          $color = 'danger';
+                        } elseif ($item->uploads->count() <=5) {
+                          $color = 'warning';
+                        } else {
+                          $color = 'success';
+                        }
+                        $percent = number_format($item->uploads->count() / 7 * 100, 0);
+                      @endphp
+                      <tr>
+                        <td>{{ $item->name }}</td>
+                        <td class="button-for-upload">
+                          @if ($item->uploads->count() != 7)
+                            @for ($i = 1; $i <= 7; $i++)
+                            <button class="btn btn-sm btn-{{ $item->uploads->count() >= $i ? $color : 'outline-secondary' }}" data-bs-toggle="modal" data-bs-target="#uploadModal-{{ $item->id }}">
+                              {{ $i }}
+                            </button>
+                            @endfor
+                          @else
+                            <span class="badge bg-success">Completed</span>
+                          @endif
+                        </td>
+                        <td>{{ $item->email }}</td>
+                        <td>
+                          @if ($item->uploads->count())
+                            {{ Carbon\Carbon::parse($item->latestUpload->tanggal_upload)->isoFormat('D MMM YYYY') }}
+                          @else
+                            -
+                          @endif
+                        </td>
+                        <td width="300px">
+                          <div class="progress progress-{{ $color }}">
+                            <div class="progress-bar progress-label" style="width: {{ $percent }}%" aria-valuenow="{{ $percent }}" aria-valuemin="0" aria-valuemax="100">
+                            </div>
+                          </div>  
+                        </td>
+                      </tr>
+                      @endforeach
+                    </tbody>
+                  </table>
+                </div>
               </div>
               <div class="tab-pane fade" id="dinas3">
-                3
+                <div class="table-responsive mt-4">
+                  <table class="table table-hover border text-center text-nowrap" id="dataTable3">
+                    <thead class="thead-light">
+                      <tr>
+                        <th scope="col">Nama Pegawai</th>
+                        <th scope="col">Status Upload</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Tanggal Upload</th>
+                        <th scope="col">Progress</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      @foreach ($items as $item)
+                      @php
+                        if ($item->uploads->count() <= 2) {
+                          $color = 'danger';
+                        } elseif ($item->uploads->count() <=5) {
+                          $color = 'warning';
+                        } else {
+                          $color = 'success';
+                        }
+                        $percent = number_format($item->uploads->count() / 7 * 100, 0);
+                      @endphp
+                      <tr>
+                        <td>{{ $item->name }}</td>
+                        <td class="button-for-upload">
+                          @if ($item->uploads->count() != 7)
+                            @for ($i = 1; $i <= 7; $i++)
+                            <button class="btn btn-sm btn-{{ $item->uploads->count() >= $i ? $color : 'outline-secondary' }}" data-bs-toggle="modal" data-bs-target="#uploadModal-{{ $item->id }}">
+                              {{ $i }}
+                            </button>
+                            @endfor
+                          @else
+                            <span class="badge bg-success">Completed</span>
+                          @endif
+                        </td>
+                        <td>{{ $item->email }}</td>
+                        <td>
+                          @if ($item->uploads->count())
+                            {{ Carbon\Carbon::parse($item->latestUpload->tanggal_upload)->isoFormat('D MMM YYYY') }}
+                          @else
+                            -
+                          @endif
+                        </td>
+                        <td width="300px">
+                          <div class="progress progress-{{ $color }}">
+                            <div class="progress-bar progress-label" style="width: {{ $percent }}%" aria-valuenow="{{ $percent }}" aria-valuemin="0" aria-valuemax="100">
+                            </div>
+                          </div>  
+                        </td>
+                      </tr>
+                      @endforeach
+                    </tbody>
+                  </table>
+                </div>
               </div>
               <div class="tab-pane fade" id="dinas4">
-                4
+                <div class="table-responsive mt-4">
+                  <table class="table table-hover border text-center text-nowrap" id="dataTable4">
+                    <thead class="thead-light">
+                      <tr>
+                        <th scope="col">Nama Pegawai</th>
+                        <th scope="col">Status Upload</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Tanggal Upload</th>
+                        <th scope="col">Progress</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      @foreach ($items as $item)
+                      @php
+                        if ($item->uploads->count() <= 2) {
+                          $color = 'danger';
+                        } elseif ($item->uploads->count() <=5) {
+                          $color = 'warning';
+                        } else {
+                          $color = 'success';
+                        }
+                        $percent = number_format($item->uploads->count() / 7 * 100, 0);
+                      @endphp
+                      <tr>
+                        <td>{{ $item->name }}</td>
+                        <td class="button-for-upload">
+                          @if ($item->uploads->count() != 7)
+                            @for ($i = 1; $i <= 7; $i++)
+                            <button class="btn btn-sm btn-{{ $item->uploads->count() >= $i ? $color : 'outline-secondary' }}" data-bs-toggle="modal" data-bs-target="#uploadModal-{{ $item->id }}">
+                              {{ $i }}
+                            </button>
+                            @endfor
+                          @else
+                            <span class="badge bg-success">Completed</span>
+                          @endif
+                        </td>
+                        <td>{{ $item->email }}</td>
+                        <td>
+                          @if ($item->uploads->count())
+                            {{ Carbon\Carbon::parse($item->latestUpload->tanggal_upload)->isoFormat('D MMM YYYY') }}
+                          @else
+                            -
+                          @endif
+                        </td>
+                        <td width="300px">
+                          <div class="progress progress-{{ $color }}">
+                            <div class="progress-bar progress-label" style="width: {{ $percent }}%" aria-valuenow="{{ $percent }}" aria-valuemin="0" aria-valuemax="100">
+                            </div>
+                          </div>  
+                        </td>
+                      </tr>
+                      @endforeach
+                    </tbody>
+                  </table>
+                </div>
               </div>
               <div class="tab-pane fade" id="dinas5">
-                5
+                <div class="table-responsive mt-4">
+                  <table class="table table-hover border text-center text-nowrap" id="dataTable5">
+                    <thead class="thead-light">
+                      <tr>
+                        <th scope="col">Nama Pegawai</th>
+                        <th scope="col">Status Upload</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Tanggal Upload</th>
+                        <th scope="col">Progress</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      @foreach ($items as $item)
+                      @php
+                        if ($item->uploads->count() <= 2) {
+                          $color = 'danger';
+                        } elseif ($item->uploads->count() <=5) {
+                          $color = 'warning';
+                        } else {
+                          $color = 'success';
+                        }
+                        $percent = number_format($item->uploads->count() / 7 * 100, 0);
+                      @endphp
+                      <tr>
+                        <td>{{ $item->name }}</td>
+                        <td class="button-for-upload">
+                          @if ($item->uploads->count() != 7)
+                            @for ($i = 1; $i <= 7; $i++)
+                            <button class="btn btn-sm btn-{{ $item->uploads->count() >= $i ? $color : 'outline-secondary' }}" data-bs-toggle="modal" data-bs-target="#uploadModal-{{ $item->id }}">
+                              {{ $i }}
+                            </button>
+                            @endfor
+                          @else
+                            <span class="badge bg-success">Completed</span>
+                          @endif
+                        </td>
+                        <td>{{ $item->email }}</td>
+                        <td>
+                          @if ($item->uploads->count())
+                            {{ Carbon\Carbon::parse($item->latestUpload->tanggal_upload)->isoFormat('D MMM YYYY') }}
+                          @else
+                            -
+                          @endif
+                        </td>
+                        <td width="300px">
+                          <div class="progress progress-{{ $color }}">
+                            <div class="progress-bar progress-label" style="width: {{ $percent }}%" aria-valuenow="{{ $percent }}" aria-valuemin="0" aria-valuemax="100">
+                            </div>
+                          </div>  
+                        </td>
+                      </tr>
+                      @endforeach
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </div>
           </div>
@@ -119,3 +335,18 @@
 </div>
 @include('includes.modal.renstra-modal')
 @endsection
+
+@push('addon-script')
+<script>
+  let tableSatu = document.querySelector('#dataTable1');
+  let dataTable1 = new simpleDatatables.DataTable(tableSatu);
+  let tableDua = document.querySelector('#dataTable2');
+  let dataTable2 = new simpleDatatables.DataTable(tableDua);
+  let tableTiga = document.querySelector('#dataTable3');
+  let dataTable3 = new simpleDatatables.DataTable(tableTiga);
+  let tableEmpat = document.querySelector('#dataTable4');
+  let dataTable4 = new simpleDatatables.DataTable(tableEmpat);
+  let tableLima = document.querySelector('#dataTable5');
+  let dataTable5 = new simpleDatatables.DataTable(tableLima);
+</script> 
+@endpush
