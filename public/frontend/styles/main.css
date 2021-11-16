@@ -19,6 +19,10 @@
   padding: 1px 7px;
 }
 
+#map {
+  height: 470px;
+}
+
 #auth {
   background-image: none;
   background: #2193b0;

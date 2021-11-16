@@ -67,3 +67,10 @@
 </div>
 @include('includes.modal.desa-modal')
 @endsection
+
+@push('addon-script')
+<script>
+  let tableSatu = document.querySelector('#dataTable');
+  let dataTable = new simpleDatatables.DataTable(tableSatu);
+</script> 
+@endpush

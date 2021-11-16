@@ -32,6 +32,8 @@
                   <tr>
                     <th scope="col" width="100px">No</th>
                     <th scope="col">Nama Kecamatan</th>
+                    <th scope="col">Latitude</th>
+                    <th scope="col">Longitude</th>
                     <th scope="col" width="100px">Aksi</th>
                   </tr>
                 </thead>
@@ -40,6 +42,8 @@
                     <tr>
                       <td>{{ $loop->iteration }}</td>
                       <td>{{ $item->nama_kecamatan }}</td>
+                      <td>{{ $item->lat }}</td>
+                      <td>{{ $item->long }}</td>
                       <td>
                         <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
                           <button type="button" class="btn icon btn-primary" data-bs-toggle="modal" data-bs-target="#editModal-{{ $item->id }}">
@@ -65,3 +69,10 @@
 </div>
 @include('includes.modal.kecamatan-modal')
 @endsection
+
+@push('addon-script')
+<script>
+  let tableSatu = document.querySelector('#dataTable');
+  let dataTable = new simpleDatatables.DataTable(tableSatu);
+</script> 
+@endpush

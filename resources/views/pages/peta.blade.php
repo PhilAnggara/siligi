@@ -9,7 +9,16 @@
   <section class="section mt-4">
     <div class="row mb-2">
 
-      <div class="col-12 col-md-6">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-content">
+            {{-- <img src="{{ url('frontend/images/peta.jpeg') }}" class="card-img-top img-fluid" alt="singleminded"> --}}
+            <div id="map"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12">
         <div class="card">
           <div class="card-body">            
             <div class="table-responsive mt-4">
@@ -47,15 +56,15 @@
         </div>
       </div>
 
-      <div class="col-12 col-md-6">
-        <div class="card">
-          <div class="card-content">
-            <img src="{{ url('frontend/images/peta.jpeg') }}" class="card-img-top img-fluid" alt="singleminded">
-          </div>
-        </div>
-      </div>
-
     </div>
   </section>
 </div>
 @endsection
+
+@push('addon-script')
+<script>
+  let tableSatu = document.querySelector('#dataTable');
+  let dataTable = new simpleDatatables.DataTable(tableSatu);
+</script> 
+<script src="{{ url('frontend/scripts/main.js') }}"></script> 
+@endpush

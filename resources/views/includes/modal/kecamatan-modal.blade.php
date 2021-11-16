@@ -21,6 +21,18 @@
                 <input type="text" id="nama_kecamatan" class="form-control" name="nama_kecamatan" placeholder="Nama Kecamatan" autocomplete="off" required>
               </div>
             </div>
+            <div class="col-12">
+              <div class="form-group">
+                <label for="lat">Latitude</label>
+                <input type="text" id="lat" class="form-control" name="lat" placeholder="Latitude" autocomplete="off" required>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="form-group">
+                <label for="long">Longitude</label>
+                <input type="text" id="long" class="form-control" name="long" placeholder="Longitude" autocomplete="off" required>
+              </div>
+            </div>
           </div>
         </div>
         <div class="modal-footer">
@@ -58,6 +70,18 @@
               <div class="form-group">
                 <label for="nama_kecamatan">Nama Kecamatan</label>
                 <input type="text" id="nama_kecamatan" class="form-control" name="nama_kecamatan" placeholder="Nama Kecamatan" value="{{ $item->nama_kecamatan }}" autocomplete="off" required>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="form-group">
+                <label for="lat">Latitude</label>
+                <input type="text" id="lat" class="form-control" name="lat" placeholder="Latitude" value="{{ $item->lat }}" autocomplete="off" required>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="form-group">
+                <label for="long">Longitude</label>
+                <input type="text" id="long" class="form-control" name="long" placeholder="Longitude" value="{{ $item->long }}" autocomplete="off" required>
               </div>
             </div>
           </div>
