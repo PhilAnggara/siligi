@@ -11,14 +11,10 @@ class PetaController extends Controller
 {
     public function index()
     {
-        $items = DataPeta::with('desa')->get();
-        $kecamatan = Kecamatan::with('desa')->get();
-        $desa = Desa::with('kecamatan')->get();
+        $items = DataPeta::with('desa')->get()->sortDesc();
 
         return view('pages.peta', [
-            'items' => $items,
-            'kecamatan' => $kecamatan,
-            'desa' => $desa
+            'items' => $items
         ]);
     }
     
@@ -29,7 +25,10 @@ class PetaController extends Controller
     
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        DataPeta::create($data);
+
+        return redirect()->back()->with('success', 'Data Berhasil Ditambahkan!');
     }
     
     public function show($id)

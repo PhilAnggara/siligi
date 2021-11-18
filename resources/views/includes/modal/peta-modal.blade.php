@@ -11,32 +11,13 @@
         </button>
       </div>
 
-      <form action="{{ route('data-kecamatan.store') }}" method="post">
+      <form action="{{ route('peta.store') }}" method="post">
         @csrf
         <div class="modal-body">
           <div class="row">
-            <div class="col-12">
-              <div class="form-group">
-                <label for="id_kecamatan">Nama Kecamatan</label>
-                <select class="form-select" id="id_kecamatan" name="id_kecamatan" required>
-                  <option value="" selected disabled>-- Pilih Kecamatan --</option>
-                  @foreach ($kecamatan as $kec)
-                  <option value="{{ $kec->id }}">{{ $kec->nama_kecamatan }}</option>
-                  @endforeach
-                </select>
-              </div>
-            </div>
-            <div class="col-12">
-              <div class="form-group">
-                <label for="id_desa">Nama Desa</label>
-                <select class="form-select" id="id_desa" name="id_desa" required>
-                  <option value="" selected disabled>-- Pilih Desa --</option>
-                  @foreach ($kecamatan as $kec)
-                  <option value="{{ $kec->id }}">{{ $kec->nama_kecamatan }}</option>
-                  @endforeach
-                </select>
-              </div>
-            </div>
+
+            @livewire('kecamatan-desa')
+            
             <div class="col-12">
               <div class="form-group">
                 <label for="ranwal_renja">Ranwal Renja</label>

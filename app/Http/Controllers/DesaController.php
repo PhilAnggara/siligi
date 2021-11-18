@@ -10,7 +10,7 @@ class DesaController extends Controller
 {
     public function index()
     {
-        $items = Desa::with('kecamatan')->get();
+        $items = Desa::with('kecamatan')->get()->sortDesc();
         $kecamatan = Kecamatan::all();
 
         return view('pages.desa', [

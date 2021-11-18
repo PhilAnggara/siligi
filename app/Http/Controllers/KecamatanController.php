@@ -9,7 +9,7 @@ class KecamatanController extends Controller
 {
     public function index()
     {
-        $items = Kecamatan::with('desa')->get();
+        $items = Kecamatan::with('desa')->get()->sortDesc();
 
         return view('pages.kecamatan', [
             'items' => $items
