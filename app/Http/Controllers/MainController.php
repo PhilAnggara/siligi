@@ -12,17 +12,6 @@ class MainController extends Controller
     {
         return view('pages.dashboard');
     }
-    
-    public function peta()
-    {
-        $items = Desa::with('kecamatan')->get();
-        $kecamatan = Kecamatan::with('desa')->get();
-
-        return view('pages.peta', [
-            'items' => $items,
-            'kecamatan' => $kecamatan
-        ]);
-    }
 
     public function kirim_json()
     {

@@ -18,8 +18,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/', 'MainController@index')->name('home');
     Route::resource('master/data-kecamatan', 'KecamatanController');
     Route::resource('master/data-desa', 'DesaController');
-    Route::get('master/peta', 'MainController@peta')->name('peta');
     Route::get('master/peta/json', 'MainController@kirim_json');
+    Route::resource('master/peta', 'PetaController');
     Route::resource('dokren/renstra', 'RenstraController');
     Route::resource('kegiatan/monev', 'MonevController');
     

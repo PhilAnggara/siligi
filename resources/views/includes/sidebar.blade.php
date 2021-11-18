@@ -33,15 +33,10 @@
               </a>
             </li>     
             <li>
-              <a href="{{ route('peta') }}" class="{{ Request::is('master/peta') ? 'text-primary' : '' }}">
-                Peta
+              <a href="{{ route('peta.index') }}" class="{{ Request::is('master/peta') ? 'text-primary' : '' }}">
+                Data Peta
               </a>
-            </li>     
-            <li>
-              <a href="{{ route('home') }}" class="{{ Request::is('master/evaluasi') ? 'text-primary' : '' }}">
-                Evaluasi
-              </a>
-            </li>     
+            </li> 
           </ul>
         </li>
         <li class="sidebar-item has-sub {{ Request::is('kegiatan*') ? 'active' : '' }}">

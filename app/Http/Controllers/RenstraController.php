@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UploadRequest;
 use App\Models\Upload;
 use App\Models\User;
 use Carbon\Carbon;
@@ -23,7 +24,7 @@ class RenstraController extends Controller
         //
     }
 
-    public function store(Request $request)
+    public function store(UploadRequest $request)
     {
         $data = $request->all();
         $data['path'] = $request->file('path')->store(

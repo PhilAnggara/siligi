@@ -125,7 +125,7 @@
                         </tr>
                       </thead>
                       <tbody>
-                        @foreach ($items2 as $item)
+                        @foreach ($items1 as $item)
                         <tr>
                           <td>
                             <div class="d-flex justify-content-between">
@@ -199,7 +199,7 @@
                         </tr>
                       </thead>
                       <tbody>
-                        @foreach ($items3 as $item)
+                        @foreach ($items1 as $item)
                         <tr>
                           <td>
                             <div class="d-flex justify-content-between">
@@ -273,7 +273,7 @@
                         </tr>
                       </thead>
                       <tbody>
-                        @foreach ($items4 as $item)
+                        @foreach ($items1 as $item)
                         <tr>
                           <td>
                             <div class="d-flex justify-content-between">
@@ -347,7 +347,7 @@
                         </tr>
                       </thead>
                       <tbody>
-                        @foreach ($items5 as $item)
+                        @foreach ($items1 as $item)
                         <tr>
                           <td>
                             <div class="d-flex justify-content-between">

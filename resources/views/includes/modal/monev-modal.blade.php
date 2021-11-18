@@ -1,6 +1,6 @@
 {{-- Modal View --}}
 @foreach ($items1 as $item)
-  @for ($i = 1; $i < 4; $i++)
+  @for ($i = 1; $i <= 4; $i++)
   <div class="modal fade text-left" id="viewModalTr{{ $i }}-{{ $item->id }}" tabindex="-1" role="dialog" aria-labelledby="viewModalTr{{ $i }}" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -20,9 +20,14 @@
                 <a class="text-secondary" href="{{ Storage::url(${'tr'.$i}->path) }}" target="_blank">
                   {{ ${'tr'.$i}->path }}
                 </a>
-                <button type="button" class="btn btn-sm icon" data-bs-toggle="modal" data-bs-target="#hapusModal-{{ ${'tr'.$i}->id }}">
-                  <i class="far fa-trash" data-toggle="tooltip" title="Hapus"></i>
-                </button>
+                <div class="btn-group">
+                  <a class="btn btn-sm icon" href="{{ Storage::url(${'tr'.$i}->path) }}" download>
+                    <i class="far fa-arrow-to-bottom" data-toggle="tooltip" title="Download"></i>
+                  </a>
+                  <button type="button" class="btn btn-sm icon" data-bs-toggle="modal" data-bs-target="#hapusModal-{{ ${'tr'.$i}->id }}">
+                    <i class="far fa-trash" data-toggle="tooltip" title="Hapus"></i>
+                  </button>
+                </div>
               </li>
             @empty
               <div class="text-center my-5">
@@ -40,7 +45,7 @@
 
 {{-- Modal Upload --}}
 @foreach ($items1 as $item)
-  @for ($i = 1; $i < 4; $i++)
+  @for ($i = 1; $i <= 4; $i++)
   <div class="modal fade text-left" id="uploadModalTr{{ $i }}-{{ $item->id }}" tabindex="-1" role="dialog" aria-labelledby="uploadModalTr{{ $i }}" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
@@ -62,7 +67,7 @@
             <div class="form-group">
               <label for="path">Upload File</label>
               <div class="input-group mb-3">
-                <input type="file" id="path" class="form-control" name="path" required>
+                <input type="file" id="path" class="form-control @error('path') is-invalid @enderror" name="path" accept="application/pdf" required>
                 <button class="btn icon icon-left btn-primary" type="submit">
                   <i class="fal fa-upload"></i>
                   Kirim

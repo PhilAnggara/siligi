@@ -1,6 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Satisfy&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Patua+One&display=swap");
+.bg-ylw {
+  background-color: #f7f8ac !important;
+}
+
 #app #sidebar .sidebar-wrapper .sidebar-header {
   margin-bottom: -50px;
 }

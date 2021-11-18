@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\MonevRequest;
 use App\Models\Monev;
 use App\Models\MonevFile;
 use App\Models\Upload;
@@ -35,12 +36,9 @@ class MonevController extends Controller
         //
     }
     
-    public function store(Request $request)
+    public function store(MonevRequest $request)
     {
         $data = $request->all();
-        // $data['path'] = $request->file('path')->store(
-        //     'monev/triwulan-'.$data['triwulan'], 'public'
-        // );
         $nama_file = $request->file('path')->getClientOriginalName();
         $data['path'] = $request->file('path')->storeAs(
             'monev/triwulan-'.$data['triwulan'], $nama_file, 'public'
