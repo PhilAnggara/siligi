@@ -71,6 +71,25 @@
           </div>
         </div>
         <div class="form-group position-relative has-icon-left">
+          <label for="id_dinas">Dinas</label>
+          <div class="position-relative">
+            <div class="input-group mb-3">
+              <label class="input-group-text" for="id_dinas"><i data-feather="briefcase"></i></label>
+              <select class="form-select @error('id_dinas') is-invalid @enderror" id="id_dinas" name="id_dinas" required>
+                <option value="" selected disabled>-- Pilih Dinas --</option>
+                @foreach ($dinas as $item)
+                <option {{ $item->id == old('id_dinas') ? 'selected' : '' }} value="{{ $item->id }}">{{ $item->nama_dinas }}</option>
+                @endforeach
+              </select>
+              @error('id_dinas')
+                <span class="invalid-feedback" role="alert">
+                  <strong>{{ $message }}</strong>
+                </span>
+              @enderror
+            </div>
+          </div>
+        </div>
+        <div class="form-group position-relative has-icon-left">
           <label for="jabatan">Jabatan</label>
           <div class="position-relative">
             <input id="jabatan" type="text" class="form-control @error('jabatan') is-invalid @enderror" name="jabatan" value="{{ old('jabatan') }}" required autofocus autocomplete="off">

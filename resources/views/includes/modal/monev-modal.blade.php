@@ -1,5 +1,5 @@
 {{-- Modal View --}}
-@foreach ($items1 as $item)
+@foreach ($items as $item)
   @for ($i = 1; $i <= 4; $i++)
   <div class="modal fade text-left" id="viewModalTr{{ $i }}-{{ $item->id }}" tabindex="-1" role="dialog" aria-labelledby="viewModalTr{{ $i }}" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -44,7 +44,7 @@
 @endforeach
 
 {{-- Modal Upload --}}
-@foreach ($items1 as $item)
+@foreach ($items as $item)
   @for ($i = 1; $i <= 4; $i++)
   <div class="modal fade text-left" id="uploadModalTr{{ $i }}-{{ $item->id }}" tabindex="-1" role="dialog" aria-labelledby="uploadModalTr{{ $i }}" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">

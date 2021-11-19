@@ -54,7 +54,7 @@
                       </tr>
                     </thead>
                     <tbody>
-                      @foreach ($items as $item)
+                      @foreach ($items1 as $item)
                       @php
                         if ($item->uploads->count() <= 2) {
                           $color = 'danger';
@@ -113,10 +113,11 @@
                         <th scope="col">Email</th>
                         <th scope="col">Tanggal Upload</th>
                         <th scope="col">Progress</th>
+                        <th scope="col">Files</th>
                       </tr>
                     </thead>
                     <tbody>
-                      @foreach ($items as $item)
+                      @foreach ($items2 as $item)
                       @php
                         if ($item->uploads->count() <= 2) {
                           $color = 'danger';
@@ -143,7 +144,7 @@
                         <td>{{ $item->email }}</td>
                         <td>
                           @if ($item->uploads->count())
-                            {{ Carbon\Carbon::parse($item->latestUpload->tanggal_upload)->isoFormat('D MMM YYYY') }}
+                            {{ Carbon\Carbon::parse($item->latestUpload->created_at)->isoFormat('D MMM YYYY') }}
                           @else
                             -
                           @endif
@@ -153,6 +154,11 @@
                             <div class="progress-bar progress-label" style="width: {{ $percent }}%" aria-valuenow="{{ $percent }}" aria-valuemin="0" aria-valuemax="100">
                             </div>
                           </div>  
+                        </td>
+                        <td>
+                          <button type="button" class="btn btn-sm icon icon-left btn-outline-info"  data-bs-toggle="modal" data-bs-target="#viewModal-{{ $item->id }}">
+                            <i class="fal fa-eye"></i> Lihat File
+                          </button>
                         </td>
                       </tr>
                       @endforeach
@@ -170,10 +176,11 @@
                         <th scope="col">Email</th>
                         <th scope="col">Tanggal Upload</th>
                         <th scope="col">Progress</th>
+                        <th scope="col">Files</th>
                       </tr>
                     </thead>
                     <tbody>
-                      @foreach ($items as $item)
+                      @foreach ($items3 as $item)
                       @php
                         if ($item->uploads->count() <= 2) {
                           $color = 'danger';
@@ -200,7 +207,7 @@
                         <td>{{ $item->email }}</td>
                         <td>
                           @if ($item->uploads->count())
-                            {{ Carbon\Carbon::parse($item->latestUpload->tanggal_upload)->isoFormat('D MMM YYYY') }}
+                            {{ Carbon\Carbon::parse($item->latestUpload->created_at)->isoFormat('D MMM YYYY') }}
                           @else
                             -
                           @endif
@@ -210,6 +217,11 @@
                             <div class="progress-bar progress-label" style="width: {{ $percent }}%" aria-valuenow="{{ $percent }}" aria-valuemin="0" aria-valuemax="100">
                             </div>
                           </div>  
+                        </td>
+                        <td>
+                          <button type="button" class="btn btn-sm icon icon-left btn-outline-info"  data-bs-toggle="modal" data-bs-target="#viewModal-{{ $item->id }}">
+                            <i class="fal fa-eye"></i> Lihat File
+                          </button>
                         </td>
                       </tr>
                       @endforeach
@@ -227,10 +239,11 @@
                         <th scope="col">Email</th>
                         <th scope="col">Tanggal Upload</th>
                         <th scope="col">Progress</th>
+                        <th scope="col">Files</th>
                       </tr>
                     </thead>
                     <tbody>
-                      @foreach ($items as $item)
+                      @foreach ($items4 as $item)
                       @php
                         if ($item->uploads->count() <= 2) {
                           $color = 'danger';
@@ -257,7 +270,7 @@
                         <td>{{ $item->email }}</td>
                         <td>
                           @if ($item->uploads->count())
-                            {{ Carbon\Carbon::parse($item->latestUpload->tanggal_upload)->isoFormat('D MMM YYYY') }}
+                            {{ Carbon\Carbon::parse($item->latestUpload->created_at)->isoFormat('D MMM YYYY') }}
                           @else
                             -
                           @endif
@@ -267,6 +280,11 @@
                             <div class="progress-bar progress-label" style="width: {{ $percent }}%" aria-valuenow="{{ $percent }}" aria-valuemin="0" aria-valuemax="100">
                             </div>
                           </div>  
+                        </td>
+                        <td>
+                          <button type="button" class="btn btn-sm icon icon-left btn-outline-info"  data-bs-toggle="modal" data-bs-target="#viewModal-{{ $item->id }}">
+                            <i class="fal fa-eye"></i> Lihat File
+                          </button>
                         </td>
                       </tr>
                       @endforeach
@@ -284,10 +302,11 @@
                         <th scope="col">Email</th>
                         <th scope="col">Tanggal Upload</th>
                         <th scope="col">Progress</th>
+                        <th scope="col">Files</th>
                       </tr>
                     </thead>
                     <tbody>
-                      @foreach ($items as $item)
+                      @foreach ($items5 as $item)
                       @php
                         if ($item->uploads->count() <= 2) {
                           $color = 'danger';
@@ -314,7 +333,7 @@
                         <td>{{ $item->email }}</td>
                         <td>
                           @if ($item->uploads->count())
-                            {{ Carbon\Carbon::parse($item->latestUpload->tanggal_upload)->isoFormat('D MMM YYYY') }}
+                            {{ Carbon\Carbon::parse($item->latestUpload->created_at)->isoFormat('D MMM YYYY') }}
                           @else
                             -
                           @endif
@@ -324,6 +343,11 @@
                             <div class="progress-bar progress-label" style="width: {{ $percent }}%" aria-valuenow="{{ $percent }}" aria-valuemin="0" aria-valuemax="100">
                             </div>
                           </div>  
+                        </td>
+                        <td>
+                          <button type="button" class="btn btn-sm icon icon-left btn-outline-info"  data-bs-toggle="modal" data-bs-target="#viewModal-{{ $item->id }}">
+                            <i class="fal fa-eye"></i> Lihat File
+                          </button>
                         </td>
                       </tr>
                       @endforeach

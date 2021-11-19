@@ -38,5 +38,101 @@ class MonevSeeder extends Seeder
             'id_dinas' => '1',
             'nama' => 'Akademisi'
         ]);
+        Monev::create([
+            'id_dinas' => '2',
+            'nama' => 'Dinas'
+        ]);
+        Monev::create([
+            'id_dinas' => '2',
+            'nama' => 'BUMN'
+        ]);
+        Monev::create([
+            'id_dinas' => '2',
+            'nama' => 'BUMD'
+        ]);
+        Monev::create([
+            'id_dinas' => '2',
+            'nama' => 'Swasta'
+        ]);
+        Monev::create([
+            'id_dinas' => '2',
+            'nama' => 'LSM'
+        ]);
+        Monev::create([
+            'id_dinas' => '2',
+            'nama' => 'Akademisi'
+        ]);
+        Monev::create([
+            'id_dinas' => '3',
+            'nama' => 'Dinas'
+        ]);
+        Monev::create([
+            'id_dinas' => '3',
+            'nama' => 'BUMN'
+        ]);
+        Monev::create([
+            'id_dinas' => '3',
+            'nama' => 'BUMD'
+        ]);
+        Monev::create([
+            'id_dinas' => '3',
+            'nama' => 'Swasta'
+        ]);
+        Monev::create([
+            'id_dinas' => '3',
+            'nama' => 'LSM'
+        ]);
+        Monev::create([
+            'id_dinas' => '3',
+            'nama' => 'Akademisi'
+        ]);
+        Monev::create([
+            'id_dinas' => '4',
+            'nama' => 'Dinas'
+        ]);
+        Monev::create([
+            'id_dinas' => '4',
+            'nama' => 'BUMN'
+        ]);
+        Monev::create([
+            'id_dinas' => '4',
+            'nama' => 'BUMD'
+        ]);
+        Monev::create([
+            'id_dinas' => '4',
+            'nama' => 'Swasta'
+        ]);
+        Monev::create([
+            'id_dinas' => '4',
+            'nama' => 'LSM'
+        ]);
+        Monev::create([
+            'id_dinas' => '4',
+            'nama' => 'Akademisi'
+        ]);
+        Monev::create([
+            'id_dinas' => '5',
+            'nama' => 'Dinas'
+        ]);
+        Monev::create([
+            'id_dinas' => '5',
+            'nama' => 'BUMN'
+        ]);
+        Monev::create([
+            'id_dinas' => '5',
+            'nama' => 'BUMD'
+        ]);
+        Monev::create([
+            'id_dinas' => '5',
+            'nama' => 'Swasta'
+        ]);
+        Monev::create([
+            'id_dinas' => '5',
+            'nama' => 'LSM'
+        ]);
+        Monev::create([
+            'id_dinas' => '5',
+            'nama' => 'Akademisi'
+        ]);
     }
 }

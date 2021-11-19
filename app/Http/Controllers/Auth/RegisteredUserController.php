@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Dinas;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
@@ -20,7 +21,11 @@ class RegisteredUserController extends Controller
      */
     public function create()
     {
-        return view('auth.register');
+        $dinas = Dinas::all();
+
+        return view('auth.register', [
+            'dinas' => $dinas
+        ]);
     }
 
     /**
@@ -36,6 +41,7 @@ class RegisteredUserController extends Controller
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'username' => ['required', 'string', 'min:3', 'max:255', 'unique:users', 'alpha_dash'],
+            'id_dinas' => ['required'],
             'jabatan' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
@@ -53,6 +59,7 @@ class RegisteredUserController extends Controller
             'profile_pic' => $request->profile_pic,
             'email' => $request->email,
             'jabatan' => $request->jabatan,
+            'id_dinas' => $request->id_dinas,
             'password' => Hash::make($request->password),
         ]);
 

@@ -13,9 +13,19 @@ class RenstraController extends Controller
     public function index()
     {
         $items = User::with('uploads','latestUpload')->get();
+        $items1 = User::with('uploads','latestUpload')->where('id_dinas', 1)->get();
+        $items2 = User::with('uploads','latestUpload')->where('id_dinas', 2)->get();
+        $items3 = User::with('uploads','latestUpload')->where('id_dinas', 3)->get();
+        $items4 = User::with('uploads','latestUpload')->where('id_dinas', 4)->get();
+        $items5 = User::with('uploads','latestUpload')->where('id_dinas', 5)->get();
 
         return view('pages.renstra', [
-            'items' => $items
+            'items' => $items,
+            'items1' => $items1,
+            'items2' => $items2,
+            'items3' => $items3,
+            'items4' => $items4,
+            'items5' => $items5
         ]);
     }
 
