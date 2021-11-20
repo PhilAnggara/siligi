@@ -6,12 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Dinas extends Model
+class RekapKegiatan extends Model
 {
     use HasFactory;
     use SoftDeletes;
 
-    protected $table = 'dinas';
+    protected $table = 'rekap_kegiatan';
 
     protected $guarded = [
         'id'
@@ -21,13 +21,8 @@ class Dinas extends Model
 
     ];
 
-    public function monev()
+    public function dinas()
     {
-        return $this->hasMany(Monev::class, 'id_dinas', 'id');
-    }
-    
-    public function rekap()
-    {
-        return $this->hasOne(RekapKegiatan::class, 'id_dinas', 'id');
+        return $this->belongsTo(Dinas::class, 'id_dinas', 'id');
     }
 }

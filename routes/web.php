@@ -20,8 +20,10 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('master/data-desa', 'DesaController');
     Route::get('master/peta/json', 'MainController@kirim_json');
     Route::resource('master/peta', 'PetaController');
-    Route::resource('dokren/renstra', 'RenstraController');
     Route::resource('kegiatan/monev', 'MonevController');
+    Route::resource('dokren/renstra', 'RenstraController');
+    Route::resource('rekap-kegiatan', 'RekapKegiatanController');
+    Route::get('profil', 'MainController@profile')->name('profile');
     
 });
 

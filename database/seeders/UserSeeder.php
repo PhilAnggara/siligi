@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
             'id_dinas' => '1',
             'username' => 'philanggara',
             'email' => 'philanggara@gmail.com',
-            'jabatan' => 'Direktur',
+            'jabatan' => 'Kepala Bagian',
             'password' => Hash::make('Admin123')
         ]);
         

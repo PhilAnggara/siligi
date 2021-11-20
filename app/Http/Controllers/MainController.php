@@ -18,4 +18,9 @@ class MainController extends Controller
         $location = Kecamatan::all();
         return json_encode($location);
     }
+
+    public function profile()
+    {
+        return view('pages.profile');
+    }
 }

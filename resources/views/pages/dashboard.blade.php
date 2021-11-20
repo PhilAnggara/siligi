@@ -9,78 +9,21 @@
   <section class="section mt-5">
     <div class="row mb-2">
 
-      <div class="col-12 col-md-3">
-        <div class="card card-statistic">
-          <div class="card-body p-0">
-            <div class="d-flex flex-column">
-              <div class='px-3 py-3 d-flex justify-content-between'>
-                <h3 class='card-title'>Informasi 1</h3>
-                <div class="card-right d-flex align-items-center">
-                  <i class="far fa-question-circle fa-3x text-white"></i>
-                </div>
-              </div>
-            </div>
-            <div class="d-flex flex-column">
-              <div class='px-3 py-3 d-flex justify-content-between'>
-                <h3 class='card-title'>15</h3>
-              </div>
-            </div>
+      <div class="card mb-3">
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            @if (auth()->user()->profile_pic)
+              <img class="card-img" src="{{ Storage::url(auth()->user()->profile_pic) }}" alt="" srcset="">
+            @else
+              <img class="card-img" src="https://ui-avatars.com/api/?background=37adf7&color=ffffff&bold=true&name={{ auth()->user()->name }}" alt="" srcset="">
+            @endif
           </div>
-        </div>
-      </div>
-      <div class="col-12 col-md-3">
-        <div class="card card-statistic">
-          <div class="card-body p-0">
-            <div class="d-flex flex-column">
-              <div class='px-3 py-3 d-flex justify-content-between'>
-                <h3 class='card-title'>Informasi 2</h3>
-                <div class="card-right d-flex align-items-center">
-                  <i class="far fa-question-circle fa-3x text-white"></i>
-                </div>
-              </div>
-            </div>
-            <div class="d-flex flex-column">
-              <div class='px-3 py-3 d-flex justify-content-between'>
-                <h3 class='card-title'>15</h3>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-md-3">
-        <div class="card card-statistic">
-          <div class="card-body p-0">
-            <div class="d-flex flex-column">
-              <div class='px-3 py-3 d-flex justify-content-between'>
-                <h3 class='card-title'>Informasi 3</h3>
-                <div class="card-right d-flex align-items-center">
-                  <i class="far fa-question-circle fa-3x text-white"></i>
-                </div>
-              </div>
-            </div>
-            <div class="d-flex flex-column">
-              <div class='px-3 py-3 d-flex justify-content-between'>
-                <h3 class='card-title'>15</h3>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-md-3">
-        <div class="card card-statistic">
-          <div class="card-body p-0">
-            <div class="d-flex flex-column">
-              <div class='px-3 py-3 d-flex justify-content-between'>
-                <h3 class='card-title'>Informasi 4</h3>
-                <div class="card-right d-flex align-items-center">
-                  <i class="far fa-question-circle fa-3x text-white"></i>
-                </div>
-              </div>
-            </div>
-            <div class="d-flex flex-column">
-              <div class='px-3 py-3 d-flex justify-content-between'>
-                <h3 class='card-title'>15</h3>
-              </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h3>{{ auth()->user()->name }}</h3>
+              <h5 class="card-title text-muted">{{ auth()->user()->email }}</h5>
+              <p class="card-text"><small class="text-muted">{{ auth()->user()->username }}</small></p>
+              <p class="card-text">{{ auth()->user()->jabatan }}</p>
             </div>
           </div>
         </div>

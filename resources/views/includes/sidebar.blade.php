@@ -116,8 +116,14 @@
             </li>    
           </ul>
         </li>
+        <li class="sidebar-item {{ Request::is('rekap-kegiatan') ? 'active' : '' }}">
+          <a href="{{ route('rekap-kegiatan.index') }}" class='sidebar-link'>
+            <i class="far fa-file-spreadsheet"></i>
+            <span>Rekap Kegiatan</span>
+          </a>
+        </li>
         <li class="sidebar-item {{ Request::is('account') ? 'active' : '' }}">
-          <a href="{{ route('home') }}" class='sidebar-link'>
+          <a href="{{ route('profile') }}" class='sidebar-link'>
             <i class="far fa-user"></i>
             <span>Account</span>
           </a>
