@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>SILIGI - Data Kecamatan</title>
+
+    <link rel="shortcut icon" href="http://localhost:8000/frontend/images/favicon.png" type="image/x-icon">
+
+<link rel="stylesheet" href="http://localhost:8000/frontend/assets/css/bootstrap.css">
+
+<link rel="stylesheet" href="http://localhost:8000/frontend/assets/vendors/simple-datatables/style.css">
+
+
+<link rel="stylesheet" href="http://localhost:8000/frontend/assets/vendors/chartjs/Chart.min.css">
+<link rel="stylesheet" href="http://localhost:8000/frontend/assets/vendors/perfect-scrollbar/perfect-scrollbar.css">
+<link rel="stylesheet" href="http://localhost:8000/frontend/assets/css/app.css">
+
+<link rel="stylesheet" href="http://localhost:8000/frontend/vendors/fontawesome/css/all.min.css">
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v6.0.0-beta1/css/all.css">
+
+<link rel="stylesheet" href="http://localhost:8000/frontend/styles/main.css">
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+crossorigin=""/>  <!-- Livewire Styles -->
+<style >
+    [wire\:loading], [wire\:loading\.delay], [wire\:loading\.inline-block], [wire\:loading\.inline], [wire\:loading\.block], [wire\:loading\.flex], [wire\:loading\.table], [wire\:loading\.grid] {
+        display: none;
+    }
+
+    [wire\:loading\.delay\.shortest], [wire\:loading\.delay\.shorter], [wire\:loading\.delay\.short], [wire\:loading\.delay\.long], [wire\:loading\.delay\.longer], [wire\:loading\.delay\.longest] {
+        display:none;
+    }
+
+    [wire\:offline] {
+        display: none;
+    }
+
+    [wire\:dirty]:not(textarea):not(input):not(select) {
+        display: none;
+    }
+
+    input:-webkit-autofill, select:-webkit-autofill, textarea:-webkit-autofill {
+        animation-duration: 50000s;
+        animation-name: livewireautofill;
+    }
+
+    @keyframes livewireautofill { from {} }
+</style>
+  
+</head>
+<body>
+
+  <div id="app">
+
+    <div id="sidebar" class='active'>
+  <div class="sidebar-wrapper active">
+    <div class="sidebar-header">
+      <a href="http://localhost:8000" class="brand">
+        <h1>SILIGI</h1>
+      </a>
+    </div>
+    <div class="sidebar-menu">
+      <ul class="menu">
+
+        <li class='sidebar-title'>Menu</li>
+
+        <li class="sidebar-item ">
+          <a href="http://localhost:8000" class='sidebar-link'>
+            <i class="far fa-home"></i>
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <li class="sidebar-item has-sub ">
+          <a href="#" class='sidebar-link'>
+            <i class="far fa-server"></i>
+            <span>Master</span>
+          </a>
+          <ul class="submenu "> 
+            <li>
+              <a href="http://localhost:8000/master/data-kecamatan" class="">
+                Data Kecamatan
+              </a>
+            </li>
+            <li>
+              <a href="http://localhost:8000/master/data-desa" class="">
+                Data Desa
+              </a>
+            </li>     
+            <li>
+              <a href="http://localhost:8000/master/peta" class="">
+                Data Peta
+              </a>
+            </li> 
+          </ul>
+        </li>
+        <li class="sidebar-item has-sub ">
+          <a href="#" class='sidebar-link'>
+            <i class="far fa-calendar-day"></i>
+            <span>Kegiatan</span>
+          </a>
+          <ul class="submenu "> 
+            <li>
+              <a href="http://localhost:8000/kegiatan/monev" class="">Monev</a>
+            </li>
+            
+          </ul>
+        </li>
+        <li class="sidebar-item has-sub ">
+          <a href="#" class='sidebar-link'>
+            <i class="far fa-money-bill-wave"></i>
+            <span>Pagu Anggaran</span>
+          </a>
+          <ul class="submenu ">
+            <li>
+              <a href="http://localhost:8000" class="">
+                Pagu RKA
+              </a>
+            </li>
+            <li>
+              <a href="http://localhost:8000" class="">
+                Pagu DPA
+              </a>
+            </li>     
+            <li>
+              <a href="http://localhost:8000" class="">
+                Pagu Pergeseran
+              </a>
+            </li>     
+          </ul>
+        </li>
+        <li class="sidebar-item has-sub ">
+          <a href="#" class='sidebar-link'>
+            <i class="far fa-bars"></i>
+            <span>Dokren</span>
+          </a>
+          <ul class="submenu "> 
+            <li>
+              <a href="http://localhost:8000/dokren/renstra" class="">
+                RENSTRA
+              </a>
+            </li>
+            <li>
+              <a href="http://localhost:8000" class="">
+                RENJA
+              </a>
+            </li>    
+            <li>
+              <a href="http://localhost:8000" class="">
+                RKPD
+              </a>
+            </li>    
+          </ul>
+        </li>
+        <li class="sidebar-item ">
+          <a href="http://localhost:8000/rekap-kegiatan" class='sidebar-link'>
+            <i class="far fa-file-spreadsheet"></i>
+            <span>Rekap Kegiatan</span>
+          </a>
+        </li>
+        <li class="sidebar-item ">
+          <a href="http://localhost:8000/profil" class='sidebar-link'>
+            <i class="far fa-user"></i>
+            <span>Account</span>
+          </a>
+        </li>
+
+      </ul>
+    </div>
+    <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
+  </div>
+</div>
+    <div id="main">
+      
+      <nav class="navbar navbar-header navbar-expand navbar-light">
+  <a class="sidebar-toggler" href="#"><span class="navbar-toggler-icon"></span></a>
+  <button class="btn navbar-toggler" type="button" data-bs-toggle="collapse"
+    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+    aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav d-flex align-items-center navbar-light ms-auto">
+      <li class="dropdown">
+        <a href="#" data-bs-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+          <div class="avatar me-1">
+                          <img src="https://ui-avatars.com/api/?background=37adf7&color=ffffff&bold=true&name=Phil Anggara" alt="" srcset="">
+                      </div>
+          <div class="d-none d-md-block d-lg-inline-block">Phil Anggara</div>
+        </a>
+        <div class="dropdown-menu dropdown-menu-end">
+          <form action="http://localhost:8000/logout" method="POST">
+            <input type="hidden" name="_token" value="uZMPll7T3w89cUfdcHDNwaXadflB3VjlopQPh8PN">            <button class="dropdown-item" type="submit">
+              <i data-feather="log-out"></i>
+              Keluar
+            </button>
+          </form>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>      <div class="main-content container-fluid">
+  <div class="page-title d-flex align-items-center justify-content-between">
+    <h3>Rekap Kegiatan</h3>
+    <button class="btn icon icon-left btn-success round" data-bs-toggle="modal" data-bs-target="#tambahDataModal">
+      <i class="fal fa-file-plus"></i>
+      Masukan Data
+    </button>
+  </div>
+  <section class="section mt-4">
+    <div class="row mb-2">
+
+      <div class="col-12">
+        <div class="card">
+          
+
+            
+            <div class="card-body">
+              <a href="http://localhost:8000/rekap-kegiatan/export" class="btn icon icon-left btn-outline-success">
+                <i class="fal fa-file-excel"></i>
+                Export
+              </a>
+            </div>
+
+            <div class="table-responsive">
+              <table class="table table-light table-bordered border text-center">
+                <thead class="thead-light">
+                  <tr>
+                    <th rowspan="2" width="100px">No</th>
+                    <th rowspan="2">Mitra Perangkat Daerah</th>
+                    <th colspan="5">Jumlah Program</th>
+                    <th colspan="6">Jumlah Kegiatan</th>
+                    <th colspan="5">Jumlah Pagu Anggaran</th>
+                    <th rowspan="2">KET.</th>
+                  </tr>
+                  <tr>
+                    <th>RKPD 2021 (tahun n)</th>
+                    <th>Ranwal Renja PD (tahun n)</th>
+                    <th>Renja PD (tahun n)</th>
+                    <th>RKA-PD (tahun n)</th>
+                    <th>DPA-PD (tahun n)</th>
+                    <th>RKPD 2021 (tahun n)</th>
+                    <th>Ranwal Renja PD (tahun n)</th>
+                    <th>Renja PD (tahun n)</th>
+                    <th>RKA-PD (tahun n)</th>
+                    <th>DPA-PD (tahun n)</th>
+                    <th>Jumlah</th>
+                    <th>RKPD 2021 (tahun n)</th>
+                    <th>Ranwal Renja PD (tahun n)</th>
+                    <th>Renja PD (tahun n)</th>
+                    <th>RKA-PD (tahun n)</th>
+                    <th>DPA-PD (tahun n)</th>
+                  </tr>
+                  <tr class="table-secondary">
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>6</td>
+                    <td>7</td>
+                    <td>8</td>
+                    <td>9</td>
+                    <td>10</td>
+                    <td>11</td>
+                    <td>12</td>
+                    <td>13</td>
+                    <td>14</td>
+                    <td>15</td>
+                    <td>16</td>
+                    <td>17</td>
+                    <td>18</td>
+                    <td>19</td>
+                  </tr>
+                </thead>
+                <tbody>
+                                      <tr>
+                      <td>1</td>
+                      <td>Dinas Perikanan</td>
+                      <td>234</td>
+                      <td>23</td>
+                      <td>3248</td>
+                      <td>343</td>
+                      <td>3489</td>
+                      <td>2348</td>
+                      <td>20</td>
+                      <td>23948</td>
+                      <td>200</td>
+                      <td>100</td>
+                      <td>20</td>
+                      <td>3984</td>
+                      <td>3480</td>
+                      <td>3498</td>
+                      <td>349320</td>
+                      <td>84</td>
+                      <td>N/A</td>
+                      
+                    </tr>
+                                      <tr>
+                      <td>2</td>
+                      <td>Dinas Ketahana Pangan</td>
+                      <td>1</td>
+                      <td>2</td>
+                      <td>3</td>
+                      <td>4</td>
+                      <td>5</td>
+                      <td>6</td>
+                      <td>7</td>
+                      <td>8</td>
+                      <td>9</td>
+                      <td>10</td>
+                      <td>70</td>
+                      <td>11</td>
+                      <td>12</td>
+                      <td>13</td>
+                      <td>14</td>
+                      <td>15</td>
+                      <td>16</td>
+                      
+                    </tr>
+                                  </tbody>
+              </table>
+            </div>
+
+          
+        </div>
+      </div>
+
+    </div>
+  </section>
+</div>
+<div class="modal fade text-left" id="tambahDataModal" tabindex="-1" role="dialog" aria-labelledby="tambahDataModal" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header bg-success">
+        <h5 class="modal-title white" id="tambahDataModal">
+          Tambah Desa
+        </h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <i data-feather="x"></i>
+        </button>
+      </div>
+
+      <form action="http://localhost:8000/rekap-kegiatan" method="post">
+        <input type="hidden" name="_token" value="uZMPll7T3w89cUfdcHDNwaXadflB3VjlopQPh8PN">        <div class="modal-body">
+          <div class="form-group row">
+            <label class="col-sm-4 col-form-label col-form-label-sm">Mitra</label>
+            <div class="col-sm-8">
+              <select name="id_dinas" class="form-select form-select-sm">
+                <option value="" selected disabled>-- Pilih Dinas --</option>
+                                  <option value="1"></option>
+                                  <option value="2"></option>
+                              </select>
+            </div>
+          </div>
+
+          <div class="divider my-4">
+            <div class="divider-text font-weight-bold">Jumlah Program</div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-4 col-form-label col-form-label-sm">RKPD 2021</label>
+            <div class="col-sm-8">
+              <input name="p_rkpd" type="number" class="form-control form-control-sm">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-4 col-form-label col-form-label-sm">RANWAL RENJA</label>
+            <div class="col-sm-8">
+              <input name="p_ranwal_renja" type="number" class="form-control form-control-sm">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-4 col-form-label col-form-label-sm">RENJA PD</label>
+            <div class="col-sm-8">
+              <input name="p_renja_pd" type="number" class="form-control form-control-sm">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-4 col-form-label col-form-label-sm">RKA PD</label>
+            <div class="col-sm-8">
+              <input name="p_rka_pd" type="number" class="form-control form-control-sm">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-4 col-form-label col-form-label-sm">DPA PD</label>
+            <div class="col-sm-8">
+              <input name="p_dpa_pd" type="number" class="form-control form-control-sm">
+            </div>
+          </div>
+
+          <div class="divider my-4">
+            <div class="divider-text font-weight-bold">Jumlah Kegiatan</div>
+          </div>
+          <div wire:id="FpTxoKEhfflXrIXG9RKN" wire:initial-data="{&quot;fingerprint&quot;:{&quot;id&quot;:&quot;FpTxoKEhfflXrIXG9RKN&quot;,&quot;name&quot;:&quot;hitung-jumlah&quot;,&quot;locale&quot;:&quot;id&quot;,&quot;path&quot;:&quot;rekap-kegiatan\/export&quot;,&quot;method&quot;:&quot;GET&quot;},&quot;effects&quot;:{&quot;listeners&quot;:[&quot;dimasukan&quot;]},&quot;serverMemo&quot;:{&quot;children&quot;:[],&quot;errors&quot;:[],&quot;htmlHash&quot;:&quot;d95a47da&quot;,&quot;data&quot;:{&quot;rrpd&quot;:null,&quot;dpapd&quot;:null,&quot;jumlah&quot;:null},&quot;dataMeta&quot;:[],&quot;checksum&quot;:&quot;6f19d7dbeb27f0b3dd1a773aec3b4a92e312c26ccd527932f14a4267a3b1846a&quot;}}">
+	<div class="form-group row">
+		<label class="col-sm-4 col-form-label col-form-label-sm">RKPD 2021</label>
+		<div class="col-sm-8">
+			<input name="k_rkpd" type="number" class="form-control form-control-sm">
+		</div>
+	</div>
+	<div class="form-group row">
+		<label class="col-sm-4 col-form-label col-form-label-sm">RANWAL RENJA</label>
+		<div class="col-sm-8">
+			<input name="k_ranwal_renja" type="number" class="form-control form-control-sm" wire:model="rrpd">
+		</div>
+	</div>
+	<div class="form-group row">
+		<label class="col-sm-4 col-form-label col-form-label-sm">RENJA PD</label>
+		<div class="col-sm-8">
+			<input name="k_renja_pd" type="number" class="form-control form-control-sm">
+		</div>
+	</div>
+	<div class="form-group row">
+		<label class="col-sm-4 col-form-label col-form-label-sm">RKA PD</label>
+		<div class="col-sm-8">
+			<input name="k_rka_pd" type="number" class="form-control form-control-sm">
+		</div>
+	</div>
+	<div class="form-group row">
+		<label class="col-sm-4 col-form-label col-form-label-sm">DPA PD</label>
+		<div class="col-sm-8">
+			<input name="k_dpa_pd" type="number" class="form-control form-control-sm" wire:model="dpapd">
+		</div>
+	</div>
+	<div class="form-group row">
+		<label class="col-sm-4 col-form-label col-form-label-sm">Jumlah</label>
+		<div class="col-sm-8">
+			<input name="k_jumlah" type="text" class="form-control form-control-sm" wire:model="jumlah" readonly>
+		</div>
+	</div>
+</div>
+
+<!-- Livewire Component wire-end:FpTxoKEhfflXrIXG9RKN -->
+          <div class="divider my-4">
+            <div class="divider-text font-weight-bold">Jumlah Pagu Anggaran</div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-4 col-form-label col-form-label-sm">RKPD 2021</label>
+            <div class="col-sm-8">
+              <input name="pa_rkpd" type="number" class="form-control form-control-sm">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-4 col-form-label col-form-label-sm">RANWAL RENJA</label>
+            <div class="col-sm-8">
+              <input name="pa_ranwal_renja" type="number" class="form-control form-control-sm">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-4 col-form-label col-form-label-sm">RENJA PD</label>
+            <div class="col-sm-8">
+              <input name="pa_renja_pd" type="number" class="form-control form-control-sm">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-4 col-form-label col-form-label-sm">RKA PD</label>
+            <div class="col-sm-8">
+              <input name="pa_rka_pd" type="number" class="form-control form-control-sm">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-4 col-form-label col-form-label-sm">DPA PD</label>
+            <div class="col-sm-8">
+              <input name="pa_dpa_pd" type="number" class="form-control form-control-sm">
+            </div>
+          </div>
+
+          <hr>
+          <div class="form-group row">
+            <label class="col-sm-4 col-form-label col-form-label-sm">Keterangan</label>
+            <div class="col-sm-8">
+              <input name="ket" type="text" class="form-control form-control-sm">
+            </div>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
+            Batal
+          </button>
+          <button type="submit" class="btn icon icon-left btn-success">
+            <i class="fal fa-plus"></i>
+            Tambah
+          </button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade text-left" id="hapusModal-1" tabindex="-1" role="dialog" aria-labelledby="hapusModal" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header bg-danger">
+        <h5 class="modal-title white" id="hapusModal">
+          Hapus
+        </h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <i data-feather="x"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p class="my-3">Yakin ingin menghapus ?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
+          Batal
+        </button>
+        <form action="http://localhost:8000/master/data-desa/1" method="POST">
+          <input type="hidden" name="_method" value="delete">          <input type="hidden" name="_token" value="uZMPll7T3w89cUfdcHDNwaXadflB3VjlopQPh8PN">          <button type="submit" class="btn icon icon-left btn-danger ml-1">
+            <i class="fal fa-trash-alt"></i>
+            Hapus
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade text-left" id="hapusModal-2" tabindex="-1" role="dialog" aria-labelledby="hapusModal" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header bg-danger">
+        <h5 class="modal-title white" id="hapusModal">
+          Hapus
+        </h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <i data-feather="x"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p class="my-3">Yakin ingin menghapus ?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
+          Batal
+        </button>
+        <form action="http://localhost:8000/master/data-desa/2" method="POST">
+          <input type="hidden" name="_method" value="delete">          <input type="hidden" name="_token" value="uZMPll7T3w89cUfdcHDNwaXadflB3VjlopQPh8PN">          <button type="submit" class="btn icon icon-left btn-danger ml-1">
+            <i class="fal fa-trash-alt"></i>
+            Hapus
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
+
+    <script src="http://localhost:8000/frontend/assets/js/feather-icons/feather.min.js"></script>
+<script src="http://localhost:8000/frontend/assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+<script src="http://localhost:8000/frontend/assets/js/app.js"></script>
+
+<script src="http://localhost:8000/frontend/assets/vendors/simple-datatables/simple-datatables.js"></script>
+
+<script src="http://localhost:8000/frontend/vendors/jquery/jquery-3.6.0.js"></script>
+
+
+
+<script src="http://localhost:8000/frontend/assets/vendors/chartjs/Chart.min.js"></script>
+<script src="http://localhost:8000/frontend/assets/vendors/apexcharts/apexcharts.min.js"></script>
+<script src="http://localhost:8000/frontend/assets/js/pages/dashboard.js"></script>
+
+<script src="http://localhost:8000/frontend/assets/js/main.js"></script>
+
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>    <!-- Livewire Scripts -->
+
+<script src="/livewire/livewire.js?id=5cdaa3ec393c09829366" data-turbo-eval="false" data-turbolinks-eval="false" ></script>
+<script data-turbo-eval="false" data-turbolinks-eval="false" >
+    if (window.livewire) {
+	    console.warn('Livewire: It looks like Livewire\'s @livewireScripts JavaScript assets have already been loaded. Make sure you aren\'t loading them twice.')
+	}
+
+    window.livewire = new Livewire();
+    window.livewire.devTools(true);
+    window.Livewire = window.livewire;
+    window.livewire_app_url = '';
+    window.livewire_token = 'uZMPll7T3w89cUfdcHDNwaXadflB3VjlopQPh8PN';
+
+	/* Make sure Livewire loads first. */
+	if (window.Alpine) {
+	    /* Defer showing the warning so it doesn't get buried under downstream errors. */
+	    document.addEventListener("DOMContentLoaded", function () {
+	        setTimeout(function() {
+	            console.warn("Livewire: It looks like AlpineJS has already been loaded. Make sure Livewire\'s scripts are loaded before Alpine.\\n\\n Reference docs for more info: http://laravel-livewire.com/docs/alpine-js")
+	        })
+	    });
+	}
+
+	/* Make Alpine wait until Livewire is finished rendering to do its thing. */
+    window.deferLoadingAlpine = function (callback) {
+        window.addEventListener('livewire:load', function () {
+            callback();
+        });
+    };
+
+    let started = false;
+
+    window.addEventListener('alpine:initializing', function () {
+        if (! started) {
+            window.livewire.start();
+
+            started = true;
+        }
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+        if (! started) {
+            window.livewire.start();
+
+            started = true;
+        }
+    });
+</script>
+  <script>
+  let tableSatu = document.querySelector('#dataTable');
+  let dataTable = new simpleDatatables.DataTable(tableSatu);
+</script> 
+  
+</body>
+</html>

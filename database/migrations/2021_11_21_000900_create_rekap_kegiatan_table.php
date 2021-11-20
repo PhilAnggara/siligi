@@ -26,13 +26,13 @@ class CreateRekapKegiatanTable extends Migration
             $table->integer('k_renja_pd');
             $table->integer('k_rka_pd');
             $table->integer('k_dpa_pd');
-            $table->integer('k_jumlah');
+            $table->integer('k_jumlah')->nullable();
             $table->integer('pa_rkpd');
             $table->integer('pa_ranwal_renja');
             $table->integer('pa_renja_pd');
             $table->integer('pa_rka_pd');
             $table->integer('pa_dpa_pd');
-            $table->string('ket');
+            $table->string('ket')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

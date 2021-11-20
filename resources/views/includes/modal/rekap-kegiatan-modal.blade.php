@@ -17,7 +17,7 @@
           <div class="form-group row">
             <label class="col-sm-4 col-form-label col-form-label-sm">Mitra</label>
             <div class="col-sm-8">
-              <select name="id_dinas" class="form-select form-select-sm">
+              <select name="id_dinas" class="form-select form-select-sm" required>
                 <option value="" selected disabled>-- Pilih Dinas --</option>
                 @foreach ($dinas as $d)
                   <option value="{{ $d->id }}">{{ $d->nama_dinas }}</option>
@@ -32,31 +32,31 @@
           <div class="form-group row">
             <label class="col-sm-4 col-form-label col-form-label-sm">RKPD 2021</label>
             <div class="col-sm-8">
-              <input name="p_rkpd" type="number" class="form-control form-control-sm">
+              <input name="p_rkpd" type="number" class="form-control form-control-sm" required>
             </div>
           </div>
           <div class="form-group row">
             <label class="col-sm-4 col-form-label col-form-label-sm">RANWAL RENJA</label>
             <div class="col-sm-8">
-              <input name="p_ranwal_renja" type="number" class="form-control form-control-sm">
+              <input name="p_ranwal_renja" type="number" class="form-control form-control-sm" required>
             </div>
           </div>
           <div class="form-group row">
             <label class="col-sm-4 col-form-label col-form-label-sm">RENJA PD</label>
             <div class="col-sm-8">
-              <input name="p_renja_pd" type="number" class="form-control form-control-sm">
+              <input name="p_renja_pd" type="number" class="form-control form-control-sm" required>
             </div>
           </div>
           <div class="form-group row">
             <label class="col-sm-4 col-form-label col-form-label-sm">RKA PD</label>
             <div class="col-sm-8">
-              <input name="p_rka_pd" type="number" class="form-control form-control-sm">
+              <input name="p_rka_pd" type="number" class="form-control form-control-sm" required>
             </div>
           </div>
           <div class="form-group row">
             <label class="col-sm-4 col-form-label col-form-label-sm">DPA PD</label>
             <div class="col-sm-8">
-              <input name="p_dpa_pd" type="number" class="form-control form-control-sm">
+              <input name="p_dpa_pd" type="number" class="form-control form-control-sm" required>
             </div>
           </div>
 
@@ -71,31 +71,31 @@
           <div class="form-group row">
             <label class="col-sm-4 col-form-label col-form-label-sm">RKPD 2021</label>
             <div class="col-sm-8">
-              <input name="pa_rkpd" type="number" class="form-control form-control-sm">
+              <input name="pa_rkpd" type="number" class="form-control form-control-sm" required>
             </div>
           </div>
           <div class="form-group row">
             <label class="col-sm-4 col-form-label col-form-label-sm">RANWAL RENJA</label>
             <div class="col-sm-8">
-              <input name="pa_ranwal_renja" type="number" class="form-control form-control-sm">
+              <input name="pa_ranwal_renja" type="number" class="form-control form-control-sm" required>
             </div>
           </div>
           <div class="form-group row">
             <label class="col-sm-4 col-form-label col-form-label-sm">RENJA PD</label>
             <div class="col-sm-8">
-              <input name="pa_renja_pd" type="number" class="form-control form-control-sm">
+              <input name="pa_renja_pd" type="number" class="form-control form-control-sm" required>
             </div>
           </div>
           <div class="form-group row">
             <label class="col-sm-4 col-form-label col-form-label-sm">RKA PD</label>
             <div class="col-sm-8">
-              <input name="pa_rka_pd" type="number" class="form-control form-control-sm">
+              <input name="pa_rka_pd" type="number" class="form-control form-control-sm" required>
             </div>
           </div>
           <div class="form-group row">
             <label class="col-sm-4 col-form-label col-form-label-sm">DPA PD</label>
             <div class="col-sm-8">
-              <input name="pa_dpa_pd" type="number" class="form-control form-control-sm">
+              <input name="pa_dpa_pd" type="number" class="form-control form-control-sm" required>
             </div>
           </div>
 

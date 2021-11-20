@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\RekapKegiatanExport;
 use App\Models\Dinas;
 use App\Models\RekapKegiatan;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class RekapKegiatanController extends Controller
 {
@@ -17,6 +19,11 @@ class RekapKegiatanController extends Controller
             'dinas' => $dinas,
             'items' => $items
         ]);
+    }
+
+    public function export() 
+    {
+        return Excel::download(new RekapKegiatanExport, 'rekap-kegiatan.xlsx');
     }
     
     public function create()

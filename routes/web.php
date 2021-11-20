@@ -22,6 +22,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('master/peta', 'PetaController');
     Route::resource('kegiatan/monev', 'MonevController');
     Route::resource('dokren/renstra', 'RenstraController');
+    Route::get('rekap-kegiatan/export/', 'RekapKegiatanController@export')->name('export-rekap-kegiatan');
     Route::resource('rekap-kegiatan', 'RekapKegiatanController');
     Route::get('profil', 'MainController@profile')->name('profile');
     
