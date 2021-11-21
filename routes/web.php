@@ -25,6 +25,8 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('pagu-anggaran/dpa', 'PaguDpaController');
     Route::resource('pagu-anggaran/pergeseran', 'PaguPergeseranController');
     Route::resource('dokren/renstra', 'RenstraController');
+    Route::resource('dokren/renja', 'RenjaController');
+    Route::resource('dokren/rkpd', 'RkpdController');
     Route::resource('musrembang', 'MusrembangController');
     Route::get('rekap-kegiatan/export/', 'RekapKegiatanController@export')->name('export-rekap-kegiatan');
     Route::resource('rekap-kegiatan', 'RekapKegiatanController');

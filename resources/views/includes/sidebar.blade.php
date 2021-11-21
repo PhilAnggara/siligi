@@ -105,12 +105,12 @@
               </a>
             </li>
             <li>
-              <a href="{{ route('home') }}" class="{{ Request::is('dokren/renja') ? 'text-primary' : '' }}">
+              <a href="{{ route('renja.index') }}" class="{{ Request::is('dokren/renja') ? 'text-primary' : '' }}">
                 RENJA
               </a>
             </li>    
             <li>
-              <a href="{{ route('home') }}" class="{{ Request::is('dokren/rkpd') ? 'text-primary' : '' }}">
+              <a href="{{ route('rkpd.index') }}" class="{{ Request::is('dokren/rkpd') ? 'text-primary' : '' }}">
                 RKPD
               </a>
             </li>    

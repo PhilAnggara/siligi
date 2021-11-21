@@ -64,4 +64,22 @@ class User extends Authenticatable
     {
         return $this->hasOne(Musrembang::class, 'id_user', 'id')->latest();
     }
+
+    public function renja()
+    {
+        return $this->hasMany(Renja::class, 'id_user', 'id');
+    }
+    public function latestRenja()
+    {
+        return $this->hasOne(Renja::class, 'id_user', 'id')->latest();
+    }
+
+    public function rkpd()
+    {
+        return $this->hasMany(Rkpd::class, 'id_user', 'id');
+    }
+    public function latestRkpd()
+    {
+        return $this->hasOne(Rkpd::class, 'id_user', 'id')->latest();
+    }
 }
