@@ -25,6 +25,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('rekap-kegiatan/export/', 'RekapKegiatanController@export')->name('export-rekap-kegiatan');
     Route::resource('rekap-kegiatan', 'RekapKegiatanController');
     Route::get('profil', 'MainController@profile')->name('profile');
+    Route::put('profil/update', 'MainController@updateProfile')->name('profile-update');
     
 });
 

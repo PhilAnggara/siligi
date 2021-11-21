@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'SILIGI - Data Kecamatan')
+@section('title', 'SILIGI - Peta')
 
 @section('content')
 <div class="main-content container-fluid">
