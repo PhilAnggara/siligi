@@ -77,17 +77,17 @@
           </a>
           <ul class="submenu ">
             <li>
-              <a href="{{ route('home') }}" class="{{ Request::is('pagu-anggaran/rka') ? 'text-primary' : '' }}">
+              <a href="{{ route('rka.index') }}" class="{{ Request::is('pagu-anggaran/rka') ? 'text-primary' : '' }}">
                 Pagu RKA
               </a>
             </li>
             <li>
-              <a href="{{ route('home') }}" class="{{ Request::is('pagu-anggaran/dpa') ? 'text-primary' : '' }}">
+              <a href="{{ route('dpa.index') }}" class="{{ Request::is('pagu-anggaran/dpa') ? 'text-primary' : '' }}">
                 Pagu DPA
               </a>
             </li>     
             <li>
-              <a href="{{ route('home') }}" class="{{ Request::is('pagu-anggaran/pergeseran') ? 'text-primary' : '' }}">
+              <a href="{{ route('pergeseran.index') }}" class="{{ Request::is('pagu-anggaran/pergeseran') ? 'text-primary' : '' }}">
                 Pagu Pergeseran
               </a>
             </li>     

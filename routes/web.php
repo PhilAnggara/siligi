@@ -21,6 +21,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('master/peta/json', 'MainController@kirim_json');
     Route::resource('master/peta', 'PetaController');
     Route::resource('kegiatan/monev', 'MonevController');
+    Route::resource('pagu-anggaran/rka', 'PaguRkaController');
+    Route::resource('pagu-anggaran/dpa', 'PaguDpaController');
+    Route::resource('pagu-anggaran/pergeseran', 'PaguPergeseranController');
     Route::resource('dokren/renstra', 'RenstraController');
     Route::get('rekap-kegiatan/export/', 'RekapKegiatanController@export')->name('export-rekap-kegiatan');
     Route::resource('rekap-kegiatan', 'RekapKegiatanController');
