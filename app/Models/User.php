@@ -46,6 +46,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function dinas()
+    {
+        return $this->belongsTo(Dinas::class, 'id_dinas', 'id');
+    }
+
 
     public function uploads()
     {

@@ -128,7 +128,7 @@
             <span>Rekap Kegiatan</span>
           </a>
         </li>
-        <li class="sidebar-item {{ Request::is('account') ? 'active' : '' }}">
+        <li class="sidebar-item {{ Request::is('profil') ? 'active' : '' }}">
           <a href="{{ route('profile') }}" class='sidebar-link'>
             <i class="far fa-user"></i>
             <span>Account</span>
