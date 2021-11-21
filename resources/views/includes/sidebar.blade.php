@@ -116,6 +116,12 @@
             </li>    
           </ul>
         </li>
+        <li class="sidebar-item {{ Request::is('musrembang') ? 'active' : '' }}">
+          <a href="{{ route('musrembang.index') }}" class='sidebar-link'>
+            <i class="far fa-clipboard-list-check"></i>
+            <span>Musrembang</span>
+          </a>
+        </li>
         <li class="sidebar-item {{ Request::is('rekap-kegiatan') ? 'active' : '' }}">
           <a href="{{ route('rekap-kegiatan.index') }}" class='sidebar-link'>
             <i class="far fa-file-spreadsheet"></i>

@@ -42,8 +42,32 @@ class MainController extends Controller
         $item = User::find(auth()->user()->id);
         $item->update($data);
 
-        // auth()->user()->update($data);
-
         return redirect()->back()->with('toast_success', 'Profil Berhasil Diupdate!');
+    }
+    
+    public function uploadProfile(Request $request)
+    {
+        $data = $request->all();
+
+        $data['profile_pic'] = $request->file('profile_pic')->store(
+            'profile-pic/'.$request->username, 'public'
+        );
+
+        $item = User::find(auth()->user()->id);
+        $item->profile_pic = $data['profile_pic'];
+        $item->save();
+
+        return redirect()->back()->with('toast_success', 'Foto Profil Berhasil Diupdate!');
+    }
+
+    public function hapusProfile(Request $request)
+    {
+        $data = $request->all();
+
+        $item = User::find(auth()->user()->id);
+        $item->profile_pic = "";
+        $item->save();
+
+        return redirect()->back()->with('toast_success', 'Foto Profil Berhasil Dihapus!');
     }
 }

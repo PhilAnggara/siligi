@@ -55,4 +55,13 @@ class User extends Authenticatable
     {
         return $this->hasOne(Upload::class, 'id_user', 'id')->latest();
     }
+
+    public function musrembang()
+    {
+        return $this->hasMany(Musrembang::class, 'id_user', 'id');
+    }
+    public function latestMusrembang()
+    {
+        return $this->hasOne(Musrembang::class, 'id_user', 'id')->latest();
+    }
 }

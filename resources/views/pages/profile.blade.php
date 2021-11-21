@@ -15,16 +15,28 @@
             
             <div class="row">
 
-              <div class="col">
+              <div class="col-md-6 mb-5 mb-md-0">
                 @if (auth()->user()->profile_pic)
                   <img class="rounded mx-auto d-block img-thumbnail" src="{{ Storage::url(auth()->user()->profile_pic) }}" alt="" srcset="">
                 @else
                   {{-- <img class="rounded mx-auto d-block img-thumbnail w-100" src="{{ Storage::url('examples/user-1.jpg') }}" alt="" srcset=""> --}}
                   <img class="rounded mx-auto d-block img-thumbnail w-100" src="https://ui-avatars.com/api/?background=37adf7&color=ffffff&bold=true&name={{ auth()->user()->name }}" alt="" srcset="">
                 @endif
+                <div class="d-flex justify-content-center mt-3">
+                  <button class="btn icon icon-left btn-info round me-2" data-bs-toggle="modal" data-bs-target="#uploadFotoModal">
+                    <i class="fal fa-paperclip"></i>
+                    {{ auth()->user()->profile_pic ? 'Ganti Foto Profil' : 'Upload Foto Profile' }}
+                  </button>
+                  @if (auth()->user()->profile_pic)
+                    <button class="btn icon icon-left btn-outline-danger round" data-bs-toggle="modal" data-bs-target="#hapusFotoModal">
+                      <i class="fal fa-trash"></i>
+                      Hapus Foto
+                    </button>
+                  @endif
+                </div>
               </div>
 
-              <div class="col order-md-first">
+              <div class="col-md-6 order-md-first">
                 <form action="{{ route('profile-update') }}" method="post">
                   @method('put')
                   @csrf
@@ -91,5 +103,5 @@
     </div>
   </section>
 </div>
-{{-- @include('includes.modal.kecamatan-modal') --}}
+@include('includes.modal.profil-modal')
 @endsection
