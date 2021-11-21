@@ -15,9 +15,8 @@ class CreateMusrembangTable extends Migration
     {
         Schema::create('musrembang', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_user');
+            $table->foreignId('id_kecamatan');
             $table->text('path');
-            $table->boolean('status');
             $table->timestamps();
             $table->softDeletes();
         });

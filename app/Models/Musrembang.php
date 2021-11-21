@@ -21,8 +21,8 @@ class Musrembang extends Model
 
     ];
 
-    public function user()
+    public function kecamatan()
     {
-        return $this->belongsTo(User::class, 'id_user', 'id');
+        return $this->belongsTo(Kecamatan::class, 'id_kecamatan', 'id');
     }
 }

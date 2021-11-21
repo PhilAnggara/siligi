@@ -16,44 +16,12 @@ class MusrembangSeeder extends Seeder
     public function run()
     {
         Musrembang::create([
-            'id_user' => '1',
-            'path' => 'examples/example.pdf',
-            'status' => '1'
+            'id_kecamatan' => '1',
+            'path' => 'examples/example.pdf'
         ]);
         Musrembang::create([
-            'id_user' => '2',
-            'path' => 'examples/example.pdf',
-            'status' => '1'
-        ]);
-        Musrembang::create([
-            'id_user' => '1',
-            'path' => 'examples/example.pdf',
-            'status' => '1'
-        ]);
-        Musrembang::create([
-            'id_user' => '2',
-            'path' => 'examples/example.pdf',
-            'status' => '1'
-        ]);
-        Musrembang::create([
-            'id_user' => '1',
-            'path' => 'examples/example.pdf',
-            'status' => '1'
-        ]);
-        Musrembang::create([
-            'id_user' => '1',
-            'path' => 'examples/example.pdf',
-            'status' => '1'
-        ]);
-        Musrembang::create([
-            'id_user' => '1',
-            'path' => 'examples/example.pdf',
-            'status' => '1'
-        ]);
-        Musrembang::create([
-            'id_user' => '1',
-            'path' => 'examples/example.pdf',
-            'status' => '1'
+            'id_kecamatan' => '2',
+            'path' => 'examples/example.pdf'
         ]);
     }
 }

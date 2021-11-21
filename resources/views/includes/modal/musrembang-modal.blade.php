@@ -1,75 +1,86 @@
-{{-- Modal Upload --}}
-@foreach ($items as $item)
-<div class="modal fade text-left" id="uploadModal-{{ $item->id }}" tabindex="-1" role="dialog" aria-labelledby="uploadModal" aria-hidden="true">
+{{-- Modal Tambah Data --}}
+<div class="modal fade text-left" id="tambahDataModal" tabindex="-1" role="dialog" aria-labelledby="tambahDataModal" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
-      <div class="modal-header bg-primary">
-        <h5 class="modal-title white" id="uploadModal">
+      <div class="modal-header bg-success">
+        <h5 class="modal-title white" id="tambahDataModal">
           Pilih File
         </h5>
         <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
           <i data-feather="x"></i>
         </button>
       </div>
-      <div class="modal-body py-4">
 
-        <form action="{{ route('musrembang.store') }}" method="post" enctype="multipart/form-data">
-          @csrf
-          <input type="hidden" name="id_user" value="{{ $item->id }}">
-          <div class="form-group">
-            <label for="path">Upload File</label>
-            <div class="input-group mb-3">
-              <input type="file" id="path" class="form-control @error('path') is-invalid @enderror" name="path" accept="application/pdf" required>
-              <button class="btn icon icon-left btn-primary" type="submit">
-                <i class="fal fa-upload"></i>
-                Kirim
-              </button>
+      <form action="{{ route('musrembang.store') }}" method="post" enctype="multipart/form-data">
+        @csrf
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-12">
+              <div class="form-group">
+                <label for="id_kecamatan">Nama Kecamatan</label>
+                <select class="form-select" id="id_kecamatan" name="id_kecamatan" required>
+                  <option value="" selected disabled>-- Pilih Kecamatan --</option>
+                  @foreach ($kecamatan as $kec)
+                  <option value="{{ $kec->id }}">{{ $kec->nama_kecamatan }}</option>
+                  @endforeach
+                </select>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="form-group">
+                <label for="path">File</label>
+                <input type="file" id="path" class="form-control @error('path') is-invalid @enderror" name="path" accept="application/pdf" required>
+                @error('path')
+                  <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                  </span>
+                @enderror
+              </div>
             </div>
           </div>
-        </form>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn icon icon-left btn-success">
+            <i class="fal fa-upload"></i>
+            Upload
+          </button>
+        </div>
+      </form>
 
+    </div>
+  </div>
+</div>
+
+{{-- Modal Hapus --}}
+@foreach ($items as $item)
+<div class="modal fade text-left" id="hapusModal-{{ $item->id }}" tabindex="-1" role="dialog" aria-labelledby="hapusModal" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header bg-danger">
+        <h5 class="modal-title white" id="hapusModal">
+          Hapus
+        </h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <i data-feather="x"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p class="my-3">Yakin ingin menghapus data ini?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
+          Batal
+        </button>
+        <form action="{{ route('musrembang.destroy', $item->id) }}" method="POST">
+          @method('delete')
+          @csrf
+          <button type="submit" class="btn icon icon-left btn-danger ml-1">
+            <i class="fal fa-trash-alt"></i>
+            Hapus
+          </button>
+        </form>
       </div>
     </div>
   </div>
 </div>
-@endforeach
-
-{{-- Modal View --}}
-@foreach ($items as $item)
-  <div class="modal fade text-left" id="viewModal-{{ $item->id }}" tabindex="-1" role="dialog" aria-labelledby="viewModal" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header bg-info">
-          <h5 class="modal-title white" id="viewModal">
-            Data Upload
-          </h5>
-          <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-            <i data-feather="x"></i>
-          </button>
-        </div>
-        <div class="modal-body py-4">
-
-          <ul class="list-group">
-            @forelse ($item->musrembang as $upload)
-              <li class="list-group-item d-flex justify-content-between align-items-center">
-                <a class="text-secondary" href="{{ Storage::url($upload->path) }}" target="_blank">
-                  {{ $item->name }} - {{ Carbon\Carbon::parse($upload->created_at)->isoFormat('D MMM YYYY') }}.pdf
-                </a>
-                <div class="btn-group">
-                  <a class="btn btn-sm icon" href="{{ Storage::url($upload->path) }}" download="{{ $item->name }} - {{ Carbon\Carbon::parse($upload->created_at)->isoFormat('D MMM YYYY') }}">
-                    <i class="far fa-arrow-to-bottom" data-toggle="tooltip" title="Download"></i>
-                  </a>
-                </div>
-              </li>
-            @empty
-              <div class="text-center my-5">
-                Tidak ada file
-              </div>
-            @endforelse
-          </ul>
-
-        </div>
-      </div>
-    </div>
-  </div>
 @endforeach
