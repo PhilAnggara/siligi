@@ -50,7 +50,7 @@ class MainController extends Controller
         $data = $request->all();
 
         $data['profile_pic'] = $request->file('profile_pic')->store(
-            'profile-pic/'.$request->username, 'public'
+            'profile-pic/'.auth()->user()->username, 'public'
         );
 
         $item = User::find(auth()->user()->id);
