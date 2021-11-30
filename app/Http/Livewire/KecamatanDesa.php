@@ -11,11 +11,16 @@ class KecamatanDesa extends Component
     public $kecamatan;
     public $desa;
     public $selectedKecamatan = "";
+    public $item;
 
     public function mount()
     {
         $this->kecamatan = Kecamatan::all();
         $this->desa = collect();
+        if ($this->item) {
+            $this->selectedKecamatan = $this->item->desa->kecamatan->id;
+            $this->updatedSelectedKecamatan($this->selectedKecamatan);
+        }
     }
 
     public function render()

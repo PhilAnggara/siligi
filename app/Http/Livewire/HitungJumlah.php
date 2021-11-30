@@ -9,8 +9,18 @@ class HitungJumlah extends Component
     public $rrpd;
     public $dpapd;
     public $jumlah;
+    public $item;
 
     protected $listeners = ['dimasukan' => 'tentukanJumlah'];
+
+    public function mount()
+    {
+        if ($this->item) {
+            $this->rrpd = $this->item->k_ranwal_renja;
+            $this->dpapd = $this->item->k_dpa_pd;
+            $this->tentukanJumlah();
+        }
+    }
  
     public function tentukanJumlah()
     {

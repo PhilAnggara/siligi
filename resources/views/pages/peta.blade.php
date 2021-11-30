@@ -24,41 +24,18 @@
 
       <div class="col-12">
         <div class="card">
+
           <div class="card-body">            
-            <div class="table-responsive mt-4">
-              <table class="table table-bordered table-striped table-hover border text-center text-nowrap" id="dataTable">
-                <thead class="thead-light">
-                  <tr>
-                    <th rowspan="2" width="100px">No</th>
-                    <th rowspan="2">Desa/Kelurahan</th>
-                    <th rowspan="2">Kecamatan</th>
-                    <th class="text-wrap">Ranwal Renja</th>
-                    <th class="text-wrap">Renja</th>
-                    <th class="text-wrap">DPA-PD</th>
-                    <th rowspan="2" class="bg-ylw">Anggaran</th>
-                  </tr>
-                  <tr>
-                    <th class="text-wrap">Jumlah Kegiatan</th>
-                    <th class="text-wrap">Jumlah Kegiatan</th>
-                    <th class="text-wrap">Jumlah Kegiatan</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  @foreach ($items as $item)
-                    <tr>
-                      <td>{{ $loop->iteration }}</td>
-                      <td>{{ $item->desa->nama_desa }}</td>
-                      <td>{{ $item->desa->kecamatan->nama_kecamatan }}</td>
-                      <td>Rp {{ number_format($item->ranwal_renja, 0, ',', '.') }}</td>
-                      <td>Rp {{ number_format($item->renja, 0, ',', '.') }}</td>
-                      <td>Rp {{ number_format($item->dpa_pd, 0, ',', '.') }}</td>
-                      <td class="bg-ylw">Rp {{ number_format($item->anggaran, 0, ',', '.') }}</td>
-                    </tr>
-                  @endforeach
-                </tbody>
-              </table>
-            </div>
+            <a href="{{ route('export-peta') }}" class="btn icon icon-left btn-outline-success">
+              <i class="fal fa-file-excel"></i>
+              Export
+            </a>
           </div>
+
+          <div class="table-responsive">
+            @include('includes.table.peta-table')
+          </div>
+
         </div>
       </div>
 

@@ -29,6 +29,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('dokren/rkpd', 'RkpdController');
     Route::resource('musrembang', 'MusrembangController');
     Route::get('rekap-kegiatan/export/', 'RekapKegiatanController@export')->name('export-rekap-kegiatan');
+    Route::get('peta/export/', 'PetaController@export')->name('export-peta');
     Route::resource('rekap-kegiatan', 'RekapKegiatanController');
     Route::get('profil', 'MainController@profile')->name('profile');
     Route::put('profil/update', 'MainController@updateProfile')->name('profile-update');

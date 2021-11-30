@@ -1,4 +1,4 @@
-<table class="table table-light table-bordered border text-center">
+<table class="table table-bordered table-striped table-hover border text-center">
   <thead class="thead-light">
     <tr>
       <th rowspan="2" width="100px">No</th>
@@ -7,6 +7,7 @@
       <th colspan="6">Jumlah Kegiatan</th>
       <th colspan="5">Jumlah Pagu Anggaran</th>
       <th rowspan="2">KET.</th>
+      <th rowspan="2"></th>
     </tr>
     <tr>
       <th>RKPD 2021 (tahun n)</th>
@@ -64,22 +65,22 @@
         <td>{{ $item->k_rka_pd }}</td>
         <td>{{ $item->k_dpa_pd }}</td>
         <td>{{ $item->k_jumlah }}</td>
-        <td>{{ $item->pa_rkpd }}</td>
-        <td>{{ $item->pa_ranwal_renja }}</td>
-        <td>{{ $item->pa_renja_pd }}</td>
-        <td>{{ $item->pa_rka_pd }}</td>
-        <td>{{ $item->pa_dpa_pd }}</td>
+        <td class="text-nowrap">Rp {{ number_format($item->pa_rkpd, 0, ',', '.') }}</td>
+        <td class="text-nowrap">Rp {{ number_format($item->pa_ranwal_renja, 0, ',', '.') }}</td>
+        <td class="text-nowrap">Rp {{ number_format($item->pa_renja_pd, 0, ',', '.') }}</td>
+        <td class="text-nowrap">Rp {{ number_format($item->pa_rka_pd, 0, ',', '.') }}</td>
+        <td class="text-nowrap">Rp {{ number_format($item->pa_dpa_pd, 0, ',', '.') }}</td>
         <td>{{ $item->ket ? $item->ket : '-' }}</td>
-        {{-- <td>
-          <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-            <button type="button" class="btn icon btn-primary" data-bs-toggle="modal" data-bs-target="#editModal-{{ $item->id }}">
-              <i class="fal fa-edit" data-toggle="tooltip" title="Edit"></i>
+        <td>
+          <div class="btn-group">
+            <button type="button" class="btn btn-sm icon" data-bs-toggle="modal" data-bs-target="#editModal-{{ $item->id }}">
+              <i class="far fa-edit" data-toggle="tooltip" title="Edit"></i>
             </button>
-            <button type="button" class="btn icon btn-danger" data-bs-toggle="modal" data-bs-target="#hapusModal-{{ $item->id }}">
-              <i class="fal fa-trash-alt" data-toggle="tooltip" title="Hapus"></i>
+            <button type="button" class="btn btn-sm icon" data-bs-toggle="modal" data-bs-target="#hapusModal-{{ $item->id }}">
+              <i class="far fa-trash" data-toggle="tooltip" title="Hapus"></i>
             </button>
           </div>
-        </td> --}}
+        </td>
       </tr>
     @empty
       <tr>

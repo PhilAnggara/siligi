@@ -51,11 +51,18 @@ class RekapKegiatanController extends Controller
     
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+        $item = RekapKegiatan::find($id);
+        $item->update($data);
+
+        return redirect()->back()->with('toast_success', 'Rekap Kegiatan Berhasil Diubah!');
     }
     
     public function destroy($id)
     {
-        //
+        $item = RekapKegiatan::find($id);
+        $item->delete();
+
+        return redirect()->back()->with('toast_success', 'Data dihapus!');
     }
 }
