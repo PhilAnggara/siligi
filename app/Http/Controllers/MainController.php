@@ -17,8 +17,10 @@ class MainController extends Controller
 
     public function kirim_json()
     {
-        $location = Kecamatan::all();
-        return json_encode($location);
+        $kecamatan = Kecamatan::all();
+
+        // return json_encode($kecamatan);
+        return response()->json($kecamatan);
     }
 
     public function profile()

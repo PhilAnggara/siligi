@@ -50,5 +50,5 @@
   let tableSatu = document.querySelector('#dataTable');
   let dataTable = new simpleDatatables.DataTable(tableSatu);
 </script> 
-<script src="{{ url('frontend/scripts/main.js') }}"></script> 
+<script src="{{ url('frontend/scripts/peta.js') }}"></script> 
 @endpush
