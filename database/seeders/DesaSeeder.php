@@ -36,7 +36,7 @@ class DesaSeeder extends Seeder
         ]);
         Desa::create([
             'nama_desa' => 'Desa Enam',
-            'id_kecamatan' => 1
+            'id_kecamatan' => 2
         ]);
         Desa::create([
             'nama_desa' => 'Desa Tujuh',

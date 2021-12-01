@@ -15,38 +15,59 @@ class DataPetaSeeder extends Seeder
     public function run()
     {
         DataPeta::create([
+            'id_kecamatan' => 1,
             'id_desa' => 1,
-            'ranwal_renja' => 100000,
-            'renja' => 100000,
-            'dpa_pd' => 100000,
+            'ranwal_renja' => 1,
+            'renja' => 0,
+            'dpa_pd' => 0,
             'anggaran' => 100000
         ]);
         DataPeta::create([
+            'id_kecamatan' => 1,
             'id_desa' => 2,
-            'ranwal_renja' => 100000,
-            'renja' => 100000,
-            'dpa_pd' => 100000,
+            'ranwal_renja' => 1,
+            'renja' => 0,
+            'dpa_pd' => 0,
             'anggaran' => 100000
         ]);
         DataPeta::create([
+            'id_kecamatan' => 1,
             'id_desa' => 3,
-            'ranwal_renja' => 100000,
-            'renja' => 100000,
-            'dpa_pd' => 100000,
+            'ranwal_renja' => 1,
+            'renja' => 1,
+            'dpa_pd' => 1,
             'anggaran' => 100000
         ]);
         DataPeta::create([
+            'id_kecamatan' => 1,
             'id_desa' => 4,
-            'ranwal_renja' => 100000,
-            'renja' => 100000,
-            'dpa_pd' => 100000,
+            'ranwal_renja' => 1,
+            'renja' => 1,
+            'dpa_pd' => 1,
             'anggaran' => 100000
         ]);
         DataPeta::create([
-            'id_desa' => 5,
-            'ranwal_renja' => 100000,
-            'renja' => 100000,
-            'dpa_pd' => 100000,
+            'id_kecamatan' => 2,
+            'id_desa' => 6,
+            'ranwal_renja' => 1,
+            'renja' => 1,
+            'dpa_pd' => 1,
+            'anggaran' => 100000
+        ]);
+        DataPeta::create([
+            'id_kecamatan' => 2,
+            'id_desa' => 7,
+            'ranwal_renja' => 1,
+            'renja' => 1,
+            'dpa_pd' => 1,
+            'anggaran' => 100000
+        ]);
+        DataPeta::create([
+            'id_kecamatan' => 2,
+            'id_desa' => 8,
+            'ranwal_renja' => 1,
+            'renja' => 1,
+            'dpa_pd' => 1,
             'anggaran' => 100000
         ]);
     }

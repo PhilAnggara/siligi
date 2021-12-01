@@ -4,7 +4,7 @@
       <th rowspan="2" width="100px">No</th>
       <th rowspan="2">Mitra Perangkat Daerah</th>
       <th colspan="5">Jumlah Program</th>
-      <th colspan="6">Jumlah Kegiatan</th>
+      <th colspan="7">Jumlah Kegiatan</th>
       <th colspan="5">Jumlah Pagu Anggaran</th>
       <th rowspan="2">KET.</th>
       <th rowspan="2"></th>
@@ -20,7 +20,8 @@
       <th>Renja PD (tahun n)</th>
       <th>RKA-PD (tahun n)</th>
       <th>DPA-PD (tahun n)</th>
-      <th>Jumlah</th>
+      <th>% DPA-PD || Ranwal Renja</th>
+      <th>% DPA-PD || Renja</th>
       <th>RKPD 2021 (tahun n)</th>
       <th>Ranwal Renja PD (tahun n)</th>
       <th>Renja PD (tahun n)</th>
@@ -64,7 +65,8 @@
         <td>{{ $item->k_renja_pd }}</td>
         <td>{{ $item->k_rka_pd }}</td>
         <td>{{ $item->k_dpa_pd }}</td>
-        <td>{{ $item->k_jumlah }}</td>
+        <th>{{ $item->jumlah_1 }}</th>
+        <th>{{ $item->jumlah_2 }}</th>
         <td class="text-nowrap">Rp {{ number_format($item->pa_rkpd, 0, ',', '.') }}</td>
         <td class="text-nowrap">Rp {{ number_format($item->pa_ranwal_renja, 0, ',', '.') }}</td>
         <td class="text-nowrap">Rp {{ number_format($item->pa_renja_pd, 0, ',', '.') }}</td>

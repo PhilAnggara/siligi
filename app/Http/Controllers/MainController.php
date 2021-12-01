@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DataPeta;
 use App\Models\Desa;
 use App\Models\Dinas;
 use App\Models\Kecamatan;
@@ -18,6 +19,17 @@ class MainController extends Controller
     public function kirim_json()
     {
         $kecamatan = Kecamatan::all();
+        $peta = DataPeta::all();
+
+        foreach ($kecamatan as $kec) {
+            if ($kec->dataPeta->count()) {
+                $dpapd = $kec->dataPeta->sum('dpa_pd');
+                $ranwal_renja = $kec->dataPeta->sum('ranwal_renja');
+                $kec->jumlah = $dpapd / $ranwal_renja * 100;
+            } else {
+                $kec->jumlah = 0;
+            }
+        }
 
         // return json_encode($kecamatan);
         return response()->json($kecamatan);

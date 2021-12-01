@@ -25,4 +25,8 @@ class Kecamatan extends Model
     {
         return $this->hasMany(Desa::class, 'id_kecamatan', 'id');
     }
+    public function dataPeta()
+    {
+        return $this->hasMany(DataPeta::class, 'id_kecamatan', 'id');
+    }
 }

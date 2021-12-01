@@ -23,9 +23,9 @@
 		<label class="col-sm-4 col-form-label col-form-label-sm">RENJA PD</label>
 		<div class="col-sm-8">
 			@if ($this->item)
-				<input name="k_renja_pd" type="number" class="form-control form-control-sm" value="{{ $this->item->k_renja_pd }}" required>
+				<input name="k_renja_pd" type="number" class="form-control form-control-sm" value="{{ $this->item->k_renja_pd }}" wire:model="rpd" required>
 			@else
-				<input name="k_renja_pd" type="number" class="form-control form-control-sm" required>
+				<input name="k_renja_pd" type="number" class="form-control form-control-sm" wire:model="rpd" required>
 			@endif
 		</div>
 	</div>
@@ -52,7 +52,13 @@
 	<div class="form-group row">
 		<label class="col-sm-4 col-form-label col-form-label-sm">Jumlah</label>
 		<div class="col-sm-8">
-			<input name="k_jumlah" type="text" class="form-control form-control-sm" wire:model="jumlah" readonly required>
+			<input name="jumlah_1" type="text" class="form-control form-control-sm" wire:model="jumlah_1" readonly required>
+		</div>
+	</div>
+	<div class="form-group row">
+		<label class="col-sm-4 col-form-label col-form-label-sm">Jumlah</label>
+		<div class="col-sm-8">
+			<input name="jumlah_2" type="text" class="form-control form-control-sm" wire:model="jumlah_2" readonly required>
 		</div>
 	</div>
 </div>

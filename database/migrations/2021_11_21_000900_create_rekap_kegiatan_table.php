@@ -26,7 +26,8 @@ class CreateRekapKegiatanTable extends Migration
             $table->integer('k_renja_pd');
             $table->integer('k_rka_pd');
             $table->integer('k_dpa_pd');
-            $table->bigInteger('k_jumlah')->nullable();
+            $table->bigInteger('jumlah_1')->nullable();
+            $table->bigInteger('jumlah_2')->nullable();
             $table->bigInteger('pa_rkpd');
             $table->bigInteger('pa_ranwal_renja');
             $table->bigInteger('pa_renja_pd');

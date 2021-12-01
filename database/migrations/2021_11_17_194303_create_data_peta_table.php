@@ -15,6 +15,7 @@ class CreateDataPetaTable extends Migration
     {
         Schema::create('data_peta', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('id_kecamatan');
             $table->foreignId('id_desa');
             $table->integer('ranwal_renja');
             $table->integer('renja');
